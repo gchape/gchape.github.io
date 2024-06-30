@@ -1,4 +1,4 @@
-baseurl = ""
+baseurl = "https://gchape.github.io/"
 
 title = "Blog"
 theme = "whiteplain"
