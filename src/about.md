@@ -1,16 +1,15 @@
 ---
 title: About Giorgi Chapidze
 layout: about.njk
-name: Giorgi Chapidze
+name: Me
 image: "/images/me.jpeg"
 ---
 
----
+Hey, I’m **Giorgi** from **Kutaisi**, **Georgia**. Growing up, I always liked problem-solving—was a two-time finalist in the local "**Everest**" math olympiad and got selected for the **Cambridge Exam** at my school, "**Imedi**".
 
-Hi! I’m Giorgi, born and raised in Kutaisi, Georgia. I’ve always loved numbers and problem-solving, and though calculus isn’t my thing, I was a finalist twice in the local math olympiad **Everest** and even got selected for the **Cambridge Exam certification** at my school, Imedi.
+I’m passionate about **Georgian dance**—I practiced for six years, and in 2014, my team took **1st place** at the festival _ოქროს ნიჟარა_. I also practice **karate** and hold a **6th kyu belt**.
 
-Outside of school, I’m passionate about **Georgian dance**—I practiced for six years, and in 2014, my team took **1st place** at the festival _ოქროს ნიჟარა_. I also practice **karate** and hold a **6th kyu belt**, which has taught me a lot about discipline.
+Right now, I’m studying **Computer Science** at **KIU**, getting into **tech**, **coding**, and building cool stuff. I also love reading about **software**—I've got a growing stack of both e-books and physical ones.
+![Software Books](/images/IMG20251112112258.jpg)
 
-These days, I’m studying **Computer Science** at KIU, exploring technology, coding, and everything that comes with building cool things.
-
-When I’m not studying or dancing, I enjoy learning new skills, and finding ways to challenge myself—whether that’s in tech, sports, or life in general.
+When I’m not studying, I’m usually checking out **crypto trends** or listening to _philosophy_ and _economics_ discussions. I’m also working on my **German**, so you might catch me practicing a bit here and there.
