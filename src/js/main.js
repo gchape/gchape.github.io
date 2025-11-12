@@ -1,5 +1,13 @@
-import "../css/main.css";
+document.addEventListener("DOMContentLoaded", () => {
+  const idCounts = {};
 
-for (const h2 of document.getElementsByTagName("h2")) {
-  h2.id = h2.innerText.replace(/\s+/g, "-").toLocaleLowerCase();
-}
+  for (const h2 of document.getElementsByTagName("h2")) {
+    const id = h2.innerText
+      .trim()
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/\s+/g, "-");
+
+    h2.id = id;
+  }
+});

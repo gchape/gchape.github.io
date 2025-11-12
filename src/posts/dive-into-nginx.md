@@ -8,8 +8,8 @@ tags: [nginx, tutorial, configuration, security, performance]
 
 ## Table of Contents
 
-1. [What is Nginx?](#what-is-nginx?)
-2. [Path Mapping: `root` vs `alias`](#path-mapping:-root-vs-alias)
+1. [What is Nginx?](#what-is-nginx)
+2. [Path Mapping: `root` vs `alias`](#path-mapping-root-vs-alias)
 3. [Serving Index Files](#serving-index-files)
 4. [Custom Error Pages](#custom-error-pages)
 5. [Advanced Routing with `try_files`](#advanced-routing-with-try_files)
