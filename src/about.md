@@ -1,14 +1,16 @@
 ---
-title: About Aidan Charles Powell
+title: About Giorgi Chapidze
 layout: about.njk
-name: Aidan Charles Powell
-image: '/images/me.jpeg'
+name: Giorgi Chapidze
+image: "/images/me.jpeg"
 ---
 
-Aidan Charles Powell is a 23-year-old health centre receptionist who enjoys watching television, eating out and social media. He is generous and giving, but can also be very rude and a bit lazy.
+---
 
-He is a Jedi who defines himself as straight. He has a degree in medicine. He is a vegetarian. He is obsessed with vintage dresses.
+Hi! I’m Giorgi, born and raised in Kutaisi, Georgia. I’ve always loved numbers and problem-solving, and though calculus isn’t my thing, I was a finalist twice in the local math olympiad **Everest** and even got selected for the **Cambridge Exam certification** at my school, Imedi.
 
-He grew up in a middle class neighbourhood. After his mother died when he was young, he was raised by his father
+Outside of school, I’m passionate about **Georgian dance**—I practiced for six years, and in 2014, my team took **1st place** at the festival _ოქროს ნიჟარა_. I also practice **karate** and hold a **6th kyu belt**, which has taught me a lot about discipline.
 
-He is currently married to Maureen Erika Quinn. Maureen is 13 years older than him and works as a sales assistant.
+These days, I’m studying **Computer Science** at KIU, exploring technology, coding, and everything that comes with building cool things.
+
+When I’m not studying or dancing, I enjoy learning new skills, and finding ways to challenge myself—whether that’s in tech, sports, or life in general.

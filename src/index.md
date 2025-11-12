@@ -1,8 +1,10 @@
 ---
 layout: home
-title: 'Eleventy Duo'
+title: "Giorgi Chapidze Blog"
 ---
 
-# Hello World
+# Welcome to My Corner of the Web
 
-Eleventy Duo is a minimal and beautiful Eleventy theme for personal blogs. Checkout the [project's github repo](https://github.com/yinkakun/eleventy-duo) for more info.
+Hi! I’m Giorgi, a Computer Science student from Kutaisi, Georgia, with a love for coding, martial arts, and music.
+
+I hope you find something interesting here! Feel free to explore my posts, learn with me, or just hang out virtually.
