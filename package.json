@@ -24,8 +24,7 @@
   },
   "scripts": {
     "dev": "concurrently \"vite\" \"ELEVENTY_ENV=development eleventy --serve\"",
-    "build": "ELEVENTY_ENV=production vite build && ELEVENTY_ENV=production eleventy",
-    "clean": "rm -rf ./public"
+    "build": "vite build && ELEVENTY_ENV=production eleventy"
   },
   "dependencies": {
     "remove": "^0.1.5"
