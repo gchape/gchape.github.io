@@ -1,10 +1,10 @@
 ---
 layout: home
-title: "Giorgi Chapidze Blog"
+title: "Durch Lehren lernen wir"
 ---
 
-# Welcome to My Corner of the Web
+# Welcome
 
-Hi! I’m Giorgi, a Computer Science student from Kutaisi, Georgia, with a love for coding, martial arts, and music.
+Hi! I’m Giorgi, a Computer Science student from Kutaisi, Georgia, with a love for #coding, #martial arts, #music and `^crypto.\*`.
 
 I hope you find something interesting here! Feel free to explore my posts, learn with me, or just hang out virtually.

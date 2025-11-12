@@ -1,13 +1,12 @@
 {
-  "name": "Eleventy Duo",
-  "description": "Eleventy Duo is a minimal and beautiful Eleventy theme for personal blogs.",
+  "name": "Blog",
+  "description": "A personal blog by Giorgi Chapidze, sharing thoughts on tech, coding, dance, and life.",
   "url": "https://eleventyduo.netlify.app",
   "author": {
-    "name": "Author Name",
-    "email": "author@site.com",
-    "twitterHandle": "author_handle"
+    "name": "Giorgi Chapidze",
+    "email": "chapidze.giorgi@proton.me"
   },
-  "defaultSocialImage": "/images/default-social-image.png",
+  "defaultSocialImage": "/images/me.jpeg",
   "headerLinks": [
     {
       "text": "Blog",
