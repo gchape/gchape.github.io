@@ -1,5 +1,5 @@
 {
-  "name": "Blog",
+  "name": "👋😊",
   "description": "A personal blog by Giorgi Chapidze, sharing thoughts on tech, coding, dance, and life.",
   "url": "https://eleventyduo.netlify.app",
   "author": {
@@ -9,7 +9,7 @@
   "defaultSocialImage": "/images/me.jpeg",
   "headerLinks": [
     {
-      "text": "Blog",
+      "text": "All Posts",
       "url": "/blog",
       "external": false
     },

@@ -11,3 +11,20 @@ document.addEventListener("DOMContentLoaded", () => {
     h2.id = id;
   }
 });
+
+const audio = new Audio(
+  "/audio/Symphony-no.-40-in-G-minor-K.-550-I.-Molto-Allegro.mp3",
+);
+audio.volume = 0.4;
+
+const toggle = document.getElementById("audio-toggle");
+
+toggle.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.play();
+    toggle.textContent = "❚❚ Pause Music";
+  } else {
+    audio.pause();
+    toggle.textContent = "▶︎ Play Music";
+  }
+});

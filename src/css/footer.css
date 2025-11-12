@@ -15,7 +15,6 @@
   max-width: 48.75rem;
   width: 100%;
   font-size: var(--text-base);
-  border-top: 1px solid rgba(230, 230, 230, 1);
 }
 
 .footer__content > * {
@@ -32,5 +31,5 @@
 }
 
 .footer li {
-  margin-right: 2rem;
+  margin-right: 0;
 }

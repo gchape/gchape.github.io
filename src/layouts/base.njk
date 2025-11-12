@@ -84,39 +84,42 @@
       {{ content | safe }}
     </main>
 
-    <footer class="footer">
-      <div class="footer__content">
+<footer class="footer">
+  <div class="footer__content">
 
-        <ul class="hero__social-links">
-          {% if site.socialLinks %}
-            {% for item in site.socialLinks %}
-              {% set externalAttribute = '' %}
-              {% if item.external %}
-                {% set externalAttribute = 'target="_blank" rel="noopener noreferrer"' %}
-              {% endif %}
-              <li>
-                <a href="{{ item.url | url }}" {{ externalAttribute | safe }}>{{ item.text }}</a>
-              </li>
-            {% endfor %}
+    <!-- Social and footer links -->
+    <ul class="hero__social-links">
+      {% if site.socialLinks %}
+        {% for item in site.socialLinks %}
+          {% set externalAttribute = '' %}
+          {% if item.external %}
+            {% set externalAttribute = 'target="_blank" rel="noopener noreferrer"' %}
           {% endif %}
+          <li>
+            <a href="{{ item.url | url }}" {{ externalAttribute | safe }}>{{ item.text }}</a>
+          </li>
+        {% endfor %}
+      {% endif %}
 
-          {% if site.footerLinks %}
-            {% for item in site.footerLinks %}
-              {% set externalAttribute = '' %}
-              {% if item.external %}
-                {% set externalAttribute = 'target="_blank" rel="noopener noreferrer"' %}
-              {% endif %}
-              <li>
-                <a href="{{ item.url | url }}" {{ externalAttribute | safe }}>{{ item.text }}</a>
-              </li>
-            {% endfor %}
+      {% if site.footerLinks %}
+        {% for item in site.footerLinks %}
+          {% set externalAttribute = '' %}
+          {% if item.external %}
+            {% set externalAttribute = 'target="_blank" rel="noopener noreferrer"' %}
           {% endif %}
-        </ul>
-      </div>
-    </footer>
+          <li>
+            <a href="{{ item.url | url }}" {{ externalAttribute | safe }}>{{ item.text }}</a>
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
 
+    <div class="audio-player">
+      <button id="audio-toggle" class="audio-button">▶ Play Music</button>
+    </div>
   </div>
-
+</footer>
+  </div>
   {% bundledjs %}
 </body>
 </html>
