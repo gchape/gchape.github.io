@@ -11,8 +11,8 @@ export default defineConfig(({ mode }) => {
       emptyOutDir: true,
       rollupOptions: {
         input: {
-          main: "./js/main.js",
-          style: "./css/main.css",
+          main: "/js/main.js",
+          style: "/css/main.css",
         },
         output: {
           entryFileNames: isDev ? "[name].js" : "[name].[hash].js",

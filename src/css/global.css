@@ -60,8 +60,7 @@ img {
 
 hr {
   width: 100%;
-  border: none;
-  background: var(--color-10);
+  border: 2px dashed var(--color-10);
   height: 1px;
   margin-top: 2rem;
 }
@@ -87,7 +86,7 @@ ol ol {
 }
 
 ul {
-  list-style-type: square;
+  list-style-type: circle;
   list-style-position: inside;
 }
 
@@ -126,17 +125,17 @@ td:only-child {
 
 * + h1,
 * + h2 {
-  margin-top: 5rem;
+  margin-top: 4rem;
 }
 
 * + h3,
 * + h4,
 * + h5 {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 * + p {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 h2 + p,
@@ -173,10 +172,10 @@ pre {
 
 code,
 kbd {
-  color: var(--accent);
+  color: deeppink;
   font-feature-settings: normal;
-  background: var(--color-30);
-  color: var(--accent);
+  background-color: transparent;
+  font-style: normal;
   padding: 1px 6px;
   margin: 0 2px;
   font-size: 0.95rem;

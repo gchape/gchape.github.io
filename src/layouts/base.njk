@@ -10,9 +10,6 @@
   {% bundledcss %}
   {% bundledjs %}
 
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-
   <title>
     {% if title %}
       {{ title | escape }} | {{ site.name }}
@@ -20,8 +17,6 @@
       {{ site.name }}
     {% endif %}
   </title>
-
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
   <meta property="og:title" content="{{ title or site.name | escape }}">
   <meta property="og:site_name" content="{{ site.name }}">
