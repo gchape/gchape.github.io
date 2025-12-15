@@ -5,6 +5,6 @@ title: "Durch Lehren lernen wir"
 
 # Welcome
 
-Hi! I’m Giorgi, a CS student from Kutaisi, Georgia, with a love for coding, reading, music and exploring crypto projects.
+Hi! I’m Giorgi.
 
 I hope you find something interesting here! Feel free to explore my posts, learn with me, or just hang out virtually.
