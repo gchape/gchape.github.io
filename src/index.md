@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "Durch Lehren lernen wir"
+title: "gchape.github.io"
 ---
 
 # Welcome
