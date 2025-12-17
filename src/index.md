@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "gchape.github.io"
+title: "gchape"
 ---
 
 # Welcome
