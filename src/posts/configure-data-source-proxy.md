@@ -122,7 +122,7 @@ Create or modify `logback.xml` in your `src/main/resources` directory. We'll cre
 </configuration>
 ```
 
-![Output](../images/ds-proxy-output.png)
+![Output](/images/ds-proxy-output.png)
 
 **Logger Configuration:**
 The `<logger>` element specifically targets the datasource-proxy's logging listener. Setting `additivity="false"` prevents SQL logs from also appearing in the CONSOLE appender, avoiding duplicate output.
