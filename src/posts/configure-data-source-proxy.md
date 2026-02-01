@@ -71,7 +71,6 @@ public DataSource dataSource(HikariDataSource hikariDataSource) {
             .name("DS-Proxy")
             .listener(listener)
             .logSlowQueryBySlf4j(500, TimeUnit.MILLISECONDS)
-            .multiline()
             .build();
 }
 ```
@@ -89,7 +88,6 @@ Let's break down what each part does:
 - `name("DS-Proxy")` - Names the proxy for identification
 - `listener(listener)` - Attaches our configured listener
 - `logSlowQueryBySlf4j(500, TimeUnit.MILLISECONDS)` - Logs queries that take longer than 500ms as slow queries
-- `multiline()` - Formats SQL statements across multiple lines for better readability
 - `build()` - Creates the proxy wrapping your HikariDataSource
 
 The proxy intercepts all JDBC calls between your application and the database, logging them according to your configuration without changing any application code.
