@@ -1,5 +1,5 @@
 +++
-title = "Nginx Quickstart"
+title = "Nginx Reference"
 date = "2026-01-05"
 +++
 
@@ -7,7 +7,7 @@ Nginx is a fast, efficient web server that handles lots of concurrent connection
 
 ## Root vs Alias
 
-**root** - Adds the request path to your root directory:
+- **root** - Adds the request path to your root directory:
 
 ```nginx
 location /admin/ {
@@ -17,7 +17,7 @@ location /admin/ {
 
 Request for `/admin/secret.html` looks at `/var/www/locked/admin/secret.html`. Notice it kept the `/admin/` part.
 
-**alias** - Replaces the matched location:
+- **alias** - Replaces the matched location:
 
 ```nginx
 location /admin/ {
@@ -25,15 +25,11 @@ location /admin/ {
 }
 ```
 
-Same request now looks at `/var/www/locked/secret.html`. The `/admin/` got swapped out.
-
-Always add the trailing slash with alias or things break.
-
-Use root when your URL structure matches your files. Use alias when you want different paths.
+Same request now looks at `/var/www/locked/secret.html`, the `/admin/` got swapped out (always add the trailing slash with alias or things break).
 
 ## Index Files
 
-When someone visits a directory like `/admin/`, Nginx needs to know what file to show:
+- When someone visits a directory like `/admin/`, Nginx needs to know what file to show:
 
 ```nginx
 server {
@@ -46,7 +42,7 @@ It tries each file in order and uses the first one it finds.
 
 ## Error Pages
 
-Basic setup:
+- The `internal` directive prevents direct access to error pages.
 
 ```nginx
 server {
@@ -59,19 +55,15 @@ server {
 }
 ```
 
-The `internal` directive prevents direct access to error pages.
-
-For single-page apps, redirect all 404s to index.html:
+- The `=200` changes the status code so your app can handle routing.
 
 ```nginx
 error_page 404 =200 /index.html;
 ```
 
-The `=200` changes the status code so your app can handle routing.
-
 ## Try Files
 
-`try_files` lets you define fallbacks:
+- `try_files` lets you define fallbacks:
 
 ```nginx
 location / {
@@ -79,9 +71,7 @@ location / {
 }
 ```
 
-For `/about` it tries: exact file, then `.html` extension, then directory, finally fallback to index.
-
-Great for static-first setups with API fallback:
+- For `/about` it tries: exact file, then `.html` extension, then directory, finally fallback to index.
 
 ```nginx
 location / {
@@ -95,13 +85,13 @@ location @backend {
 
 ## Request Body Handling
 
-Control how much stays in memory:
+- Control how much stays in memory:
 
 ```nginx
 client_body_buffer_size 16k;
 ```
 
-Anything larger gets written to disk. Bump it up for file uploads:
+- Anything larger gets written to disk. Bump it up for file uploads:
 
 ```nginx
 location /upload/ {
@@ -110,7 +100,7 @@ location /upload/ {
 }
 ```
 
-Specify temp file location:
+- Specify temp file location:
 
 ```nginx
 client_body_temp_path /mnt/ssd/nginx-temp 1 2;
@@ -120,7 +110,7 @@ The numbers create nested directories to avoid too many files in one folder.
 
 ## Method Restrictions
 
-`limit_except` lists allowed methods, then restricts everything else:
+- `limit_except` lists allowed methods, then restricts everything else:
 
 ```nginx
 location /admin/ {
@@ -133,7 +123,7 @@ location /admin/ {
 
 Everyone can GET. Only local IPs can POST/PUT/DELETE.
 
-Make an API read-only:
+- Make an API read-only:
 
 ```nginx
 location /api/ {
@@ -145,7 +135,7 @@ location /api/ {
 
 ## Rate Limiting
 
-Limit bandwidth per connection:
+- Limit bandwidth per connection:
 
 ```nginx
 location /downloads/ {
@@ -153,7 +143,7 @@ location /downloads/ {
 }
 ```
 
-Let the first chunk download fast, then throttle:
+- Let the first chunk download fast, then throttle:
 
 ```nginx
 location /videos/ {
@@ -162,7 +152,7 @@ location /videos/ {
 }
 ```
 
-Limit requests per second:
+- Limit requests per second:
 
 ```nginx
 limit_req_zone $binary_remote_addr zone=api:10m rate=10r/s;
@@ -172,7 +162,7 @@ location /api/ {
 }
 ```
 
-## Complete Example
+## Example
 
 ```nginx
 http {
