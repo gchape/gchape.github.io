@@ -3,8 +3,10 @@ date = "2025-12-21"
 title = "About"
 +++
 
-Hey, I am the author of this nerdy blog, currently pursuing a **Computer Science** degree at **KIU**.
+Hello, you’ve reached the blog of mine. I'm currently pursuing a **Computer Science** degree at **Kutaisi International University**;
 
-I enjoy reading about programming and spend most of my time diving deep into Java(Spring Boot/Hibernate), databases, and concurrency.
+I don’t believe in utter idealism, and I’m always trying (at least) to understand how things work under the hood;
 
-![Library](/images/books.jpg)
+I spend a lot of time reading books about software, still, they seem like the best way to learn things;
+
+!["Books"](/images/books.jpg)
