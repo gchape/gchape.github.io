@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+<h1>Portfolio</h1>
+
+<div class="portfolio-grid">
+  {{ range .Pages }}
+    <div class="portfolio-card">
+
+      {{ $img := .Params.image }}
+      {{ $github := .Params.github }}
+
+      {{ if and $img $github }}
+        <a href="{{ $github }}" target="_blank" rel="noopener">
+          <img src="{{ $img }}" alt="{{ .Title }}" class="portfolio-image">
+        </a>
+      {{ end }}
+
+      <h2 class="portfolio-title">
+        {{ .Title }}
+      </h2>
+
+    </div>
+  {{ end }}
+</div>
+
+{{ end }}

@@ -1,0 +1,40 @@
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.portfolio-card {
+  text-align: center;
+}
+
+.portfolio-card > a:hover {
+  background-color: transparent;
+}
+
+.portfolio-image {
+  width: 100%;
+
+  border-radius: 12px;
+  border: 1px solid #333;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.portfolio-image:hover {
+  transform: scale(1.025);
+  opacity: 0.85;
+}
+
+.portfolio-title {
+  padding: 0.75rem 0;
+  margin-top: 0.75rem;
+
+  letter-spacing: 1px;
+  font-weight: lighter;
+
+  border-bottom: 1px solid #2a2a2a;
+}
