@@ -1,13 +1,11 @@
 +++
-title = "Nginx Web Server Guide"
-date = "2026-01-5"
+title = "Nginx Quickstart"
+date = "2026-01-05"
 +++
 
 Nginx is a fast, efficient web server that handles lots of concurrent connections without eating your RAM. It's used for serving sites, routing traffic, and load balancing.
 
 ## Root vs Alias
-
-This trips up a lot of people at first.
 
 **root** - Adds the request path to your root directory:
 

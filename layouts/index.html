@@ -2,7 +2,7 @@
 
 <h1>Welcome to ProvokeDynamic</h1>
 <h2>> Software engineer in progress</h2>
-<h2>> Fetish on Java, databases, and concurrency</h2>
+<h2>> Fetish: Java, Databases, and Concurrency</h2>
 
 <br/>
 
@@ -26,14 +26,17 @@
 
 <div class="image-grid">
 {{ with .Site.GetPage "/projects" }}
-    {{ range first 3 (sort .Pages "Date" "desc")}}
-        <a href="{{ .Permalink }}" title="{{ .Title }}">
-        {{ $image := .Page.Resources.GetMatch .Params.image }}
-        {{ with $image }}
-            {{ $thumb := .Resize "400x" }}
-            <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}" class="img-responsive">
-        {{end}}
-        </a>
+    {{ range sort .Pages "Date" "desc" }}
+        {{ $image := .Resources.GetMatch .Params.image }}
+        <div class="project-card">
+            <a href="{{ .Params.github }}" target="_blank" title="{{ .Title }}">
+                {{ with $image }}
+                    {{ $thumb := .Resize "400x" }}
+                    <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}" class="img-responsive">
+                {{ end }}
+                <div class="project-title">{{ .Title }}</div>
+            </a>
+        </div>
     {{ end }}
 {{ end }}
 </div>
