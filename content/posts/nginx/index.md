@@ -1,6 +1,9 @@
-# Nginx Guide
++++
+title = "Nginx Web Server Guide"
+date = "2026-01-5"
++++
 
-Nginx (pronounced "engine-ex") is a fast, efficient web server that handles lots of concurrent connections without eating your RAM. It's used for serving sites, routing traffic, and load balancing.
+Nginx is a fast, efficient web server that handles lots of concurrent connections without eating your RAM. It's used for serving sites, routing traffic, and load balancing.
 
 ## Root vs Alias
 

@@ -1,4 +1,7 @@
-# Configure Hibernate with DataSource Proxy
++++
+title = "Configure Hibernate with DataSource Proxy"
+date = "2026-01-14"
++++
 
 ## Why Use a DataSource Proxy?
 
@@ -120,7 +123,7 @@ Create or modify `logback.xml` in your `src/main/resources` directory. We'll cre
 </configuration>
 ```
 
-![Output](/images/ds-proxy-output.png)
+![Output](/images/ds-proxy.png)
 
 **Logger Configuration:**
 The `<logger>` element specifically targets the datasource-proxy's logging listener. Setting `additivity="false"` prevents SQL logs from also appearing in the CONSOLE appender, avoiding duplicate output.

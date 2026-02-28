@@ -1,0 +1,20 @@
+baseURL = 'https://provokedynamic.tech/'
+languageCode = 'en-us'
+title = 'ProvokeDynamic | Giorgi Chapidze'
+theme = 'hugo-theme-console'
+
+[params]
+  description = "A personal blog documenting my findings and projects."
+  animateStyle = "animate-fade-up"
+
+[[params.navlinks]]
+  name = "About"
+  url = "/about/"
+
+[[params.navlinks]]
+  name = "Posts"
+  url = "/posts/"
+
+[[params.navlinks]]
+  name = "Projects"
+  url = "/projects/"
