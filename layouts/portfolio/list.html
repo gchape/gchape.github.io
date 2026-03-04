@@ -1,25 +1,47 @@
 {{ define "main" }}
 
-<h1>Portfolio</h1>
+<div class="portfolio-header">
+  <h1>Portfolio</h1>
+  <p class="portfolio-subtitle">select * from projects order by date desc;</p>
+</div>
 
-<div class="portfolio-grid">
-  {{ range .Pages }}
-    <div class="portfolio-card">
+<div class="portfolio-list">
+  {{ range $i, $page := .Pages }}
+  <div class="portfolio-item">
+    <a
+      class="portfolio-item-link"
+      href="{{ with $page.Params.github }}{{ . }}{{ else }}{{ $page.Permalink }}{{ end }}"
+      {{
+      with
+      $page.Params.github
+      }}target="_blank"
+      rel="noopener"
+      {{
+      end
+      }}
+    >
+      <div class="portfolio-row">
+        <div class="portfolio-row-left">
+          <span class="portfolio-index">{{ printf "%02d" (add $i 1) }}</span>
+          <span class="portfolio-title">{{ $page.Title }}</span>
+        </div>
+        <div class="portfolio-row-right">
+          <span class="portfolio-date">{{ $page.Date.Format "Jan 2006" }}</span>
+          <span class="portfolio-arrow">↗</span>
+        </div>
+      </div>
 
-      {{ $img := .Params.image }}
-      {{ $github := .Params.github }}
-
-      {{ if and $img $github }}
-        <a href="{{ $github }}" target="_blank" rel="noopener">
-          <img src="{{ $img }}" alt="{{ .Title }}" class="portfolio-image">
-        </a>
+      {{ with $page.Content }}
+      <div class="portfolio-desc-row">
+        <div class="portfolio-desc">{{ . }}</div>
+      </div>
+      {{ end }} {{ with $page.Params.tags }}
+      <div class="portfolio-tags">
+        {{ range . }}<span class="portfolio-tag">{{ . }}</span>{{ end }}
+      </div>
       {{ end }}
-
-      <h2 class="portfolio-title">
-        {{ .Title }}
-      </h2>
-
-    </div>
+    </a>
+  </div>
   {{ end }}
 </div>
 
