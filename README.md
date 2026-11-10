@@ -1,6 +1,6 @@
 # Blog & portfolio
 
-Giorgi Chapidze's personal site, built with React, TypeScript, Vite, Tailwind CSS v4, and shadcn/ui. Static hosting works without server rewrite rules because wouter uses hash routes.
+Giorgi Chapidze's personal site, built with React, TypeScript, Vite, Tailwind CSS v4, and shadcn/ui. Wouter uses normal browser URLs. The production build pre-renders every page to its own HTML file, so GitHub Pages can serve deep links without server rewrite rules.
 
 ## Development
 
@@ -12,14 +12,15 @@ pnpm dev
 ## Checks
 
 ```sh
-pnpm check       # Biome: formatting, linting, imports; warnings fail the check
-pnpm check:fix   # Apply safe fixes
-pnpm lint        # Biome lint only
-pnpm format     # Format the codebase
-pnpm typecheck  # TypeScript
-pnpm unused     # Knip: unused files, exports, and dependencies
-pnpm build      # TypeScript + production build
-pnpm preview    # Preview the production build
+pnpm check
+pnpm check:fix
+pnpm lint
+pnpm format
+pnpm typecheck
+pnpm test
+pnpm unused
+pnpm build
+pnpm preview
 ```
 
 Biome checks source, configuration, HTML, CSS, SVG, and Markdown. It understands Tailwind directives and Markdown frontmatter. Generated output, dependencies, and the generated lockfile are excluded.
@@ -28,22 +29,46 @@ Biome checks source, configuration, HTML, CSS, SVG, and Markdown. It understands
 
 ```text
 src/
-  components/   Navigation, post/project lists, filters, Markdown
-    ui/         shadcn components generated from the base-sera preset
+  app/
+    App.tsx
+    application.tsx
+    metadata.ts
+    seo.tsx
+    not-found-page.tsx
+  features/
+    about/
+      components/
+      about-page.tsx
+    blog/
+      components/
+      content/
+        posts/
+      article-page.tsx
+      blog-page.tsx
+    portfolio/
+      components/
+      content/
+        projects/
+      portfolio-page.tsx
+      project-page.tsx
+  components/
+    content/
+    layout/
+    ui/
   content/
-    posts/      Markdown blog posts
-    posts.ts    Post loading and metadata
-    profile.ts  Name and contact links
-    projects.ts Project entries and their type
-  lib/          Shared utilities and date formatting
-  pages/        Blog, portfolio, about, article, project, and 404
-  App.tsx       wouter routes and site layout
-  index.css     Tailwind import, theme tokens, and base styles
+  lib/
+  entry-server.tsx
+  main.tsx
+  index.css
 ```
 
-UI controls use shadcn's `base-sera` preset with Base UI primitives: Button, InputGroup, ToggleGroup, DropdownMenu, Badge, Item, Empty, Separator, and CodeBlock. All UI icons, including Git, contact, and email symbols for social links, come from the installed Lucide package. `src/index.css` holds the preset's taupe theme tokens. Headings use Playfair Display, and body text uses Source Sans 3. Both variable fonts are served locally through Fontsource. Code, dates, tags, and metadata also use Source Sans 3; there is no separate monospace font. Both themes use shadcn's standard tokens and `.dark` class. `next-themes` handles persistence, cross-tab sync, and system preferences; the menu supports Light, Dark, and System.
+`src/app/` owns routing, providers, SEO, and the fallback page. Each feature owns its pages, components, and content. Shared components live in `src/components/`; profile, experience, and site settings live in `src/content/`. Post metadata tests sit beside the blog's metadata parser.
 
-Page entrances, staggered lists, and hover motion use `tw-animate-css` and Tailwind utilities with a shared easing curve. The page entrance starts after lazy content is ready; stagger delays are capped for long lists. Hover transitions include Tailwind's independent `translate` property. Motion respects reduced-motion preferences.
+UI controls use shadcn's `base-sera` preset with Base UI primitives and Lucide icons. Keep shared control styling in `src/components/ui/`. `src/index.css` defines the mint and charcoal themes. Fontsource serves Playfair Display for headings, Source Sans 3 for body text, and JetBrains Mono for code. `next-themes` provides Light, Dark, and System modes with persistence and cross-tab sync.
+
+Page entrances, staggered lists, and hover motion use `tw-animate-css` and Tailwind utilities. Motion respects reduced-motion preferences.
+
+`SiteBackground` adds a dotted grid and pointer glow using animation frames without React rerenders. The pointer effect hides on touch devices and with reduced motion. The homepage project preview uses the shared project data.
 
 Add components using the existing preset:
 
@@ -51,11 +76,11 @@ Add components using the existing preset:
 pnpm exec shadcn add component-name
 ```
 
-`components.json` is the preset configuration. Keep shared component styling in `src/components/ui/` rather than reimplementing controls in individual pages.
+`components.json` stores the preset configuration.
 
 ## Add a post
 
-Create a Markdown file in `src/content/posts/`. The filename becomes its URL slug. Posts are automatically sorted by date; categories become filter options.
+Create a Markdown file in `src/features/blog/content/posts/`. The filename becomes its URL slug. Posts are automatically sorted by date; categories become filter options.
 
 ````md
 ---
@@ -79,39 +104,54 @@ const message = "Hello";
 
 Posts use `react-markdown` with `remark-gfm`: CommonMark, tables, nested lists, task lists, links, images, blockquotes, and fenced code blocks. Raw HTML is disabled and unsafe link protocols are filtered by the renderer. Code blocks and their copy buttons come from shadcn. Tailwind Typography handles article styling.
 
+Valibot validates post metadata. Title, description, date, and category are required; `sample` defaults to `false`. Quoted dates and YAML date timestamps are accepted, while missing or impossible dates fail with the source filename and field. There is no fallback publication date.
+
+Fenced `mermaid` blocks render as SVG diagrams in posts and project descriptions. Mermaid loads when a diagram is present, follows the light/dark theme, and uses Source Sans 3. Diagrams scroll horizontally on narrow screens and support keyboard focus. Include `accTitle:` and `accDescr:` in each chart for accessible labels and descriptions.
+
 `vite-plugin-markdown` extracts YAML frontmatter and article text at build time. No custom build plugin or browser-side parser is needed.
 
 ## Add a project
 
-Add or update entries in `src/content/projects.ts`:
+Create a project module in `src/features/portfolio/content/projects/`:
 
 ```typescript
-{
-  slug: "my-project",
-  title: "My project",
-  description: "What it does.",
-  category: "Web apps",
-  tags: ["React", "TypeScript"],
-  content: "## Overview\n\nThe story behind this project.",
-  url: "https://example.com",             // optional
-  github: "https://github.com/me/project", // optional
-  image: "/images/my-project.webp",        // optional; put images in public/images/
-  imageAlt: "Screenshot of my project",    // optional
-}
+import type { Project } from "../project";
+
+export const myProject: Project = {
+	slug: "my-project",
+	title: "My project",
+	description: "What it does.",
+	category: "Web apps",
+	tags: ["React", "TypeScript"],
+	content: "## Overview\n\nThe story behind this project.",
+	url: "https://example.com",
+	github: "https://github.com/me/project",
+	image: "/images/my-project.webp",
+	imageAlt: "Screenshot of my project",
+};
 ```
 
-wouter handles routes, URL parameters, and internal links. Each project gets a detail page. Live-site and repository links appear when supplied.
+Import the project into `src/features/portfolio/content/projects.ts` and add it to the `projects` array. Each project gets a detail page. Live-site and repository links appear when supplied.
 
 ## Personalize
 
 - Contact links: `src/content/profile.ts`.
-- Introduction and About copy: `src/pages/blog-page.tsx` and `src/pages/about-page.tsx`.
+- Education, training, Ohooq plans, and Beauty Code role: `src/content/experience.ts`.
+- Introduction and About copy: `src/features/blog/blog-page.tsx` and `src/features/about/about-page.tsx`.
 - Light and dark colors: `src/index.css`.
 
 ## Deployment
 
-The GitHub Actions workflow in `.github/workflows/deploy.yml` deploys to GitHub Pages on every push to `main`. It installs the pinned pnpm version on Node.js 26, runs Biome and the production build, and publishes `dist/` only after both succeed. You can also run it manually from the Actions tab.
+The GitHub Actions workflow in `.github/workflows/deploy.yml` deploys to GitHub Pages on every push to `main`. It installs the pinned pnpm version on Node.js 26, runs Biome, metadata tests, and the production build, then publishes `dist/`. You can also run it manually from the Actions tab.
 
 In the repository's [Settings → Pages](https://github.com/gchape/gchape.github.io/settings/pages), set **Build and deployment → Source** to **GitHub Actions** once. This is the [publishing source required for a custom workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages). The workflow uses GitHub's built-in token; no custom deployment secret is needed.
 
-The site will be available at <https://gchape.github.io/>. Vite's default `/` base and the existing hash routes work for this repository without extra routing configuration.
+The site will be available at <https://gchape.github.io/>. Vite's default `/` base and the generated page directories work for this repository without extra routing configuration. Old `#/...` links redirect to their normal URLs.
+
+## SEO and sitemap
+
+`src/content/site.ts` defines the public site URL and default metadata. `src/app/metadata.ts` defines page metadata, and `src/app/seo.tsx` renders titles, descriptions, canonical URLs, Open Graph and Twitter tags, and JSON-LD. The same metadata is included in the pre-rendered HTML, alongside the page content, before JavaScript runs.
+
+`pnpm build` runs `scripts/prerender.mjs` after Vite. It generates each page's `index.html`, a real `404.html`, `sitemap.xml`, and `robots.txt` in `dist/`. The sitemap includes the homepage, About, Portfolio, projects, and published posts. Sample posts (`sample: true`) and the 404 page use `noindex` and are excluded from the sitemap. Set `sample: false` when publishing a real post.
+
+The deployed sitemap is <https://gchape.github.io/sitemap.xml>. It is also advertised in <https://gchape.github.io/robots.txt> and can be submitted in Google Search Console. Updating posts or projects automatically updates the generated pages and sitemap on the next build. If the domain changes, update `site.url` before building.
