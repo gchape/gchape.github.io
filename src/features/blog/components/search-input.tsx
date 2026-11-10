@@ -14,7 +14,7 @@ export function SearchInput({
 	onChange: (value: string) => void;
 }) {
 	return (
-		<InputGroup className="w-full sm:w-44">
+		<InputGroup className="h-11 w-full bg-card/80 sm:w-52">
 			<InputGroupInput
 				type="search"
 				aria-label="Search articles"

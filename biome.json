@@ -55,6 +55,21 @@
 			"enabled": true
 		}
 	},
+	"overrides": [
+		{
+			"includes": [
+				"src/components/content/mermaid-diagram.tsx",
+				"src/components/ui/code-block.tsx"
+			],
+			"linter": {
+				"rules": {
+					"a11y": {
+						"noNoninteractiveTabindex": "off"
+					}
+				}
+			}
+		}
+	],
 	"markdown": {
 		"parser": {
 			"frontmatter": true

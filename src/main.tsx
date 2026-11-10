@@ -1,24 +1,15 @@
-import { ThemeProvider } from "next-themes";
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { Router } from "wouter";
-import { useHashLocation } from "wouter/use-hash-location";
+import { createRoot, hydrateRoot } from "react-dom/client";
+import { Application } from "@/app/application";
 import "./index.css";
-import App from "./App.tsx";
 
 const root = document.getElementById("root");
 if (!root) throw new Error("Missing #root element in index.html");
-createRoot(root).render(
-	<StrictMode>
-		<ThemeProvider
-			attribute="class"
-			storageKey="giorgi-theme"
-			defaultTheme="system"
-			disableTransitionOnChange
-		>
-			<Router hook={useHashLocation}>
-				<App />
-			</Router>
-		</ThemeProvider>
-	</StrictMode>,
-);
+
+const legacyPath = window.location.hash.slice(1);
+if (legacyPath.startsWith("/") && !legacyPath.startsWith("//")) {
+	window.location.replace(legacyPath);
+} else if (root.dataset.prerendered === "true") {
+	hydrateRoot(root, <Application />);
+} else {
+	createRoot(root).render(<Application />);
+}

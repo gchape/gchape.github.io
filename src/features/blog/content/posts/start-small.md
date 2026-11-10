@@ -17,8 +17,6 @@ const idea = {
 	start: "small",
 	keep: "building",
 };
-
-// One useful step at a time.
 ```
 
 ## Leave room to learn

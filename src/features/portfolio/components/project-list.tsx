@@ -11,11 +11,11 @@ import {
 	ItemHeader,
 	ItemTitle,
 } from "@/components/ui/item";
-import type { Project } from "@/content/projects";
+import type { Project } from "@/features/portfolio/content/projects";
 
 export function ProjectList({ projects }: { projects: Project[] }) {
 	return (
-		<ItemGroup className="grid gap-6 md:grid-cols-2">
+		<ItemGroup className="grid gap-5 md:grid-cols-2">
 			{projects.map((project, index) => (
 				<li
 					key={project.slug}
@@ -25,10 +25,11 @@ export function ProjectList({ projects }: { projects: Project[] }) {
 					<Item
 						variant="outline"
 						render={<Link href={`/portfolio/${project.slug}`} />}
-						className="h-full gap-6 p-6 sm:p-8 hover:border-foreground/20 hover:shadow-lg hover:shadow-foreground/5 motion-safe:duration-400 motion-safe:hover:-translate-y-0.5"
+						className="h-full gap-6 overflow-hidden p-6 hover:border-primary/25 hover:shadow-md hover:shadow-foreground/5 motion-safe:duration-400 motion-safe:hover:-translate-y-0.5 sm:p-8"
 					>
+						<ItemHeader className="text-xs font-medium text-primary">{project.category}</ItemHeader>
 						{project.image && (
-							<ItemHeader className="overflow-hidden">
+							<ItemHeader className="overflow-hidden rounded-xl">
 								<img
 									src={project.image}
 									alt={project.imageAlt ?? project.title}
@@ -38,21 +39,21 @@ export function ProjectList({ projects }: { projects: Project[] }) {
 							</ItemHeader>
 						)}
 						<ItemContent>
-							<ItemTitle className="line-clamp-none text-2xl leading-snug font-medium normal-case sm:text-3xl">
+							<ItemTitle className="line-clamp-none text-xl leading-snug font-medium tracking-tight normal-case sm:text-2xl">
 								<h2>{project.title}</h2>
 							</ItemTitle>
 							<ItemDescription className="mt-3 line-clamp-none text-base leading-7">
 								{project.description}
 							</ItemDescription>
 						</ItemContent>
-						<ItemActions>
+						<ItemActions className="self-start rounded-full bg-muted/70 p-2 text-muted-foreground group-hover/item:bg-primary/10 group-hover/item:text-primary">
 							<ArrowUpRight
 								aria-hidden="true"
-								className="size-5 text-muted-foreground motion-safe:transition-transform motion-safe:duration-400 motion-safe:ease-smooth motion-safe:group-hover/item:-translate-y-0.5 motion-safe:group-hover/item:translate-x-0.5"
+								className="size-4 motion-safe:transition-transform motion-safe:duration-400 motion-safe:ease-smooth motion-safe:group-hover/item:-translate-y-0.5 motion-safe:group-hover/item:translate-x-0.5"
 							/>
 						</ItemActions>
-						<ItemFooter className="mt-4 flex-wrap gap-y-4">
-							<div className="flex flex-wrap gap-3">
+						<ItemFooter className="mt-auto flex-wrap gap-y-4 pt-1">
+							<div className="flex flex-wrap gap-2">
 								{project.tags.map((tag) => (
 									<Badge key={tag} variant="secondary">
 										{tag}

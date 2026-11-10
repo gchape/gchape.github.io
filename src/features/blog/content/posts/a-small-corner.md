@@ -8,13 +8,13 @@ sample: true
 
 There is something nice about having a little space of your own. A place where an idea can be unfinished, a project can be in progress, and a thought doesn't have to fit into a character limit.
 
-This notebook is a fresh start. A home for things built, things learned, and the occasional question that leads somewhere interesting.
+This site is a fresh start. A home for things built, things learned, and the occasional question that leads somewhere interesting.
 
 ## Start with a blank page
 
 A personal website doesn't need to begin with a grand plan. A few words and a little curiosity are enough to get going. The useful part is having a place to come back to.
 
-The notebook is for writing things down. The workbench is for projects and experiments. Both have room to grow.
+The blog is for writing things down. The portfolio is for projects and experiments. Both have room to grow.
 
 > You don't need to have everything figured out to make a beginning.
 

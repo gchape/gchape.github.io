@@ -7,12 +7,10 @@ import {
 	EmptyHeader,
 	EmptyTitle,
 } from "@/components/ui/empty";
-import { profile } from "@/content/profile";
 
 export function NotFoundPage() {
 	return (
 		<Empty>
-			<title>{`Page not found — ${profile.name}`}</title>
 			<EmptyHeader>
 				<p className="font-sans text-xs text-muted-foreground">404</p>
 				<EmptyTitle>

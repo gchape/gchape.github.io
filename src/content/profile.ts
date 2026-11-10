@@ -1,6 +1,20 @@
 export const profile = {
 	name: "Giorgi Chapidze",
+	jobTitle: "Software developer",
 	email: "chapidze.giorgi@proton.me",
 	github: "https://github.com/gchape",
 	linkedin: "https://www.linkedin.com/in/giorgi-chapidze-9b5ba8230",
+	knowsAbout: [
+		"Java",
+		"Clojure",
+		"Python",
+		"TypeScript",
+		"Full-stack development",
+		"AI automation",
+		"AI agents",
+		"Digital commerce",
+		"Software transactional memory",
+		"Databases",
+		"Concurrency",
+	],
 };

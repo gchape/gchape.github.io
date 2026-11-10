@@ -7,14 +7,15 @@ import {
 	ItemContent,
 	ItemDescription,
 	ItemGroup,
+	ItemHeader,
 	ItemTitle,
 } from "@/components/ui/item";
-import type { Post } from "@/content/posts";
+import type { Post } from "@/features/blog/content/posts";
 import { formatDate } from "@/lib/format-date";
 
 export function PostList({ posts }: { posts: Post[] }) {
 	return (
-		<ItemGroup className="gap-5">
+		<ItemGroup className="gap-4">
 			{posts.map((post, index) => (
 				<li
 					key={post.slug}
@@ -24,29 +25,32 @@ export function PostList({ posts }: { posts: Post[] }) {
 					<Item
 						variant="outline"
 						render={<Link href={`/blog/${post.slug}`} />}
-						className="gap-6 p-6 sm:p-8 hover:border-foreground/20 hover:shadow-lg hover:shadow-foreground/5 motion-safe:duration-400 motion-safe:hover:-translate-y-0.5"
+						className="gap-5 p-6 hover:border-primary/25 hover:shadow-md hover:shadow-foreground/5 motion-safe:duration-400 motion-safe:hover:-translate-y-0.5 sm:p-7"
 					>
-						<ItemContent>
-							<time dateTime={post.date} className="mb-4 font-sans text-xs text-muted-foreground">
+						<ItemHeader>
+							<time dateTime={post.date} className="font-sans text-xs text-muted-foreground">
 								{formatDate(post.date)}
 							</time>
-							<ItemTitle className="line-clamp-none text-2xl leading-snug font-medium normal-case sm:text-3xl">
+							<Badge variant="secondary" className="text-primary">
+								{post.category}
+							</Badge>
+						</ItemHeader>
+						<ItemContent>
+							<ItemTitle className="line-clamp-none text-xl leading-snug font-medium tracking-tight normal-case sm:text-2xl">
 								<h3>{post.title}</h3>
 							</ItemTitle>
 							<ItemDescription className="mt-3 max-w-2xl line-clamp-none text-base leading-7">
 								{post.description}
 							</ItemDescription>
-							<div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-								<span>{post.category}</span>
-								<span aria-hidden="true">/</span>
+							<div className="mt-4 flex flex-wrap items-center gap-3 text-[11px] text-muted-foreground">
 								<span>{post.minutes} min read</span>
 								{post.sample && <Badge variant="secondary">Sample post</Badge>}
 							</div>
 						</ItemContent>
-						<ItemActions>
+						<ItemActions className="rounded-full bg-muted/70 p-2 text-muted-foreground group-hover/item:bg-primary/10 group-hover/item:text-primary">
 							<ArrowUpRight
 								aria-hidden="true"
-								className="size-5 text-muted-foreground motion-safe:transition-transform motion-safe:duration-400 motion-safe:ease-smooth motion-safe:group-hover/item:-translate-y-0.5 motion-safe:group-hover/item:translate-x-0.5"
+								className="size-4 motion-safe:transition-transform motion-safe:duration-400 motion-safe:ease-smooth motion-safe:group-hover/item:-translate-y-0.5 motion-safe:group-hover/item:translate-x-0.5"
 							/>
 						</ItemActions>
 					</Item>

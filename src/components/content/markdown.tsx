@@ -2,6 +2,7 @@ import { isValidElement } from "react";
 import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { MermaidDiagram } from "@/components/content/mermaid-diagram";
 import {
 	CodeBlock,
 	CodeBlockActions,
@@ -17,6 +18,7 @@ const components: Components = {
 			return <pre>{children}</pre>;
 		const code = String(children.props.children ?? "").replace(/\n$/, "");
 		const language = /language-(\S+)/.exec(children.props.className ?? "")?.[1] ?? "";
+		if (language === "mermaid") return <MermaidDiagram chart={code} />;
 		return (
 			<CodeBlock className="not-prose my-7">
 				<CodeBlockHeader>

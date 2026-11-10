@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { Link } from "wouter";
 import { FilterTabs } from "@/components/filter-tabs";
 import { PageHeading } from "@/components/page-heading";
-import { PostList } from "@/components/post-list";
-import { SearchInput } from "@/components/search-input";
 import { SocialLinks } from "@/components/social-links";
+import { TextLink } from "@/components/text-link";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
 	Empty,
@@ -13,7 +12,10 @@ import {
 	EmptyHeader,
 	EmptyTitle,
 } from "@/components/ui/empty";
-import { posts } from "@/content/posts";
+import { PostList } from "@/features/blog/components/post-list";
+import { SearchInput } from "@/features/blog/components/search-input";
+import { posts } from "@/features/blog/content/posts";
+import { ProjectPreview } from "@/features/portfolio/components/project-preview";
 
 export function BlogPage() {
 	const [category, setCategory] = useState("All");
@@ -29,30 +31,29 @@ export function BlogPage() {
 
 	return (
 		<>
-			<PageHeading title="Notes on software.">
-				<p>
-					I'm Giorgi. I build things and write about what I learn along the way. This is a home for
-					my notes and{" "}
-					<Link
-						href="/portfolio"
-						className="text-foreground underline decoration-border underline-offset-4 hover:decoration-primary"
-					>
-						projects
-					</Link>
-					.
-				</p>
-			</PageHeading>
-			<div className="-mt-7 mb-20 sm:mb-24">
-				<SocialLinks icons={false} />
+			<div className="mb-16 grid gap-10 lg:mb-20 lg:grid-cols-[minmax(0,1fr)_19rem] lg:items-center lg:gap-14">
+				<div>
+					<PageHeading title="Notes on software." className="mb-7 sm:mb-7">
+						<p>
+							I'm Giorgi, a software developer interested in full-stack development, AI automation,
+							and agents. I build web apps and concurrent systems, and share what I learn through my
+							notes and <TextLink href="/portfolio">projects</TextLink>.
+						</p>
+					</PageHeading>
+					<div>
+						<SocialLinks icons={false} />
+					</div>
+				</div>
+				<ProjectPreview />
 			</div>
 			<section aria-labelledby="writing-heading">
-				<div className="mb-7 flex items-baseline justify-between gap-4">
+				<div className="mb-6 flex items-center justify-between gap-4 border-b border-border pb-5">
 					<h2 id="writing-heading" className="text-2xl font-medium">
 						Writing
 					</h2>
-					<span className="font-sans text-[11px] text-muted-foreground">
+					<Badge variant="secondary" className="font-sans text-xs text-muted-foreground">
 						{posts.length} {posts.length === 1 ? "post" : "posts"}
-					</span>
+					</Badge>
 				</div>
 				<div className="mb-8 flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
 					<FilterTabs
@@ -89,9 +90,7 @@ export function BlogPage() {
 					)}
 				</div>
 				{posts.some((post) => post.sample) && (
-					<p className="mt-5 text-xs leading-6 text-muted-foreground">
-						Sample posts for now. New writing is on the way.
-					</p>
+					<p className="mt-5 text-xs leading-6 text-muted-foreground">These are sample posts.</p>
 				)}
 			</section>
 		</>

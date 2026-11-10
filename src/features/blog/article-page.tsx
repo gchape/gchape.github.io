@@ -1,13 +1,13 @@
 import { useParams } from "wouter";
+import { NotFoundPage } from "@/app/not-found-page";
 import { BackLink } from "@/components/back-link";
-import { Markdown } from "@/components/markdown";
-import { PostList } from "@/components/post-list";
+import { Markdown } from "@/components/content/markdown";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { posts } from "@/content/posts";
 import { profile } from "@/content/profile";
+import { PostList } from "@/features/blog/components/post-list";
+import { posts } from "@/features/blog/content/posts";
 import { formatDate } from "@/lib/format-date";
-import { NotFoundPage } from "@/pages/not-found-page";
 
 export function ArticlePage() {
 	const { slug } = useParams<{ slug: string }>();
@@ -15,12 +15,11 @@ export function ArticlePage() {
 	if (!post) return <NotFoundPage />;
 	const related = posts.filter((item) => item.slug !== post.slug).slice(0, 2);
 	return (
-		<article className="mx-auto max-w-3xl">
-			<title>{`${post.title} — ${profile.name}`}</title>
+		<article className="mx-auto max-w-3xl rounded-2xl border border-border/70 bg-card/95 p-6 shadow-sm sm:p-10">
 			<BackLink href="/">All posts</BackLink>
 			<header className="pb-8">
-				<div className="mb-4 flex flex-wrap items-center gap-3 font-sans text-[11px] text-muted-foreground">
-					<span>{post.category}</span>
+				<div className="mb-5 flex flex-wrap items-center gap-3 font-sans text-[11px] text-muted-foreground">
+					<span className="text-primary">{post.category}</span>
 					<span aria-hidden="true">/</span>
 					<time dateTime={post.date}>{formatDate(post.date)}</time>
 					<span aria-hidden="true">/</span>
@@ -50,7 +49,7 @@ export function ArticlePage() {
 			</div>
 			{related.length > 0 && (
 				<section className="mt-16" aria-labelledby="related-heading">
-					<h2 id="related-heading" className="mb-5 text-sm font-medium">
+					<h2 id="related-heading" className="mb-5 font-sans text-base font-semibold">
 						More writing
 					</h2>
 					<PostList posts={related} />
