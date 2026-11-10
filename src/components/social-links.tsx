@@ -38,7 +38,7 @@ export function SocialLinks({
 							/>
 						}
 						className={cn(
-							"text-muted-foreground hover:text-foreground motion-safe:hover:-translate-y-0.5",
+							"text-muted-foreground hover:text-primary motion-safe:hover:-translate-y-0.5",
 							!icons && "px-0",
 						)}
 					>

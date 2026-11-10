@@ -18,12 +18,12 @@ function ItemGroup({ className, ...props }: React.ComponentProps<"ul">) {
 }
 
 const itemVariants = cva(
-	"group/item flex w-full flex-wrap items-center rounded-none border text-sm transition-[translate,box-shadow,border-color,background-color] duration-300 ease-smooth motion-reduce:transition-none outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 [a]:hover:bg-muted",
+	"group/item flex w-full flex-wrap items-center rounded-2xl border text-sm transition-[translate,box-shadow,border-color,background-color] duration-300 ease-smooth motion-reduce:transition-none outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 [a]:hover:bg-muted",
 	{
 		variants: {
 			variant: {
 				default: "border-transparent",
-				outline: "border-border",
+				outline: "border-border/70 bg-card/90 shadow-sm",
 				muted: "border-transparent bg-muted/50",
 			},
 			size: {

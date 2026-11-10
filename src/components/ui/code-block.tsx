@@ -5,7 +5,7 @@ import * as React from "react";
 import { Button } from "@/components/ui/button";
 
 const codeBlockVariants = cva(
-	"group/code-block relative flex w-full min-w-0 flex-col overflow-hidden rounded-none text-sm has-[>[data-slot=code-block-content]:focus-visible]:ring-2 has-[>[data-slot=code-block-content]:focus-visible]:ring-ring/30 data-[size=sm]:text-xs",
+	"group/code-block relative flex w-full min-w-0 flex-col overflow-hidden rounded-xl text-sm has-[>[data-slot=code-block-content]:focus-visible]:ring-2 has-[>[data-slot=code-block-content]:focus-visible]:ring-ring/30 data-[size=sm]:text-xs",
 	{
 		variants: {
 			variant: {
@@ -104,7 +104,7 @@ function CodeBlockCopyButton({
 				variant={variant}
 				size={size}
 				aria-label={copied ? "Copied" : "Copy"}
-				className={cn(className)}
+				className={className}
 				onClick={(event) => {
 					onClick?.(event);
 					navigator.clipboard
@@ -136,10 +136,9 @@ function CodeBlockContent({
 			data-slot="code-block-content"
 			data-wrap={wrap || undefined}
 			dir="ltr"
-			// biome-ignore lint/a11y/noNoninteractiveTabindex: Keyboard users need to focus this scrollable code region.
 			tabIndex={0}
 			className={cn(
-				"min-h-0 min-w-0 scroll-fade-x scrollbar-thin overflow-auto px-4 py-4 text-start font-sans leading-relaxed outline-none group-has-data-[slot=code-block-footer]/code-block:pb-2 group-has-data-[slot=code-block-header]/code-block:pt-2 group-data-[size=sm]/code-block:px-3 group-data-[size=sm]/code-block:py-3 group-data-[size=sm]/code-block:group-has-data-[slot=code-block-header]/code-block:pt-1.5 data-wrap:scroll-fade-y data-wrap:wrap-break-word data-wrap:whitespace-pre-wrap",
+				"min-h-0 min-w-0 scroll-fade-x scrollbar-thin overflow-auto px-4 py-4 text-start font-mono leading-relaxed outline-none group-has-data-[slot=code-block-footer]/code-block:pb-2 group-has-data-[slot=code-block-header]/code-block:pt-2 group-data-[size=sm]/code-block:px-3 group-data-[size=sm]/code-block:py-3 group-data-[size=sm]/code-block:group-has-data-[slot=code-block-header]/code-block:pt-1.5 data-wrap:scroll-fade-y data-wrap:wrap-break-word data-wrap:whitespace-pre-wrap",
 				className,
 			)}
 			{...props}
