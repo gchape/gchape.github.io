@@ -67,5 +67,20 @@ The agent can supply metrics at load time; callers can also provide explicit met
 
 The JMH suite compares optimistic transactions, pessimistic write locking, and a lock-based implementation. It covers transfers, concurrent reader/writer groups, configurable access patterns, and instrumentation workloads. Untimed checks verify balances, increments, and agent activation.
 
-The [benchmark guide](https://github.com/gchape/weft/blob/main/weft-benchmark/README.md) documents workload semantics and profiling commands. [Recorded results](https://github.com/gchape/weft#recorded-results) include raw measurements and run settings; they compare specific workloads rather than establish the accuracy of automatic protocol selection.`,
+### Recorded throughput
+
+The [recorded run](https://github.com/gchape/weft#recorded-results) used Temurin 25.0.5 and JMH 1.37 with four workers, 64 accounts, two accounts per transaction, and uniform access. Each configuration ran three forks, with five 2-second warmup iterations and eight 2-second measurement iterations per fork. The agent and diagnostic counters were disabled.
+
+Results are millions of operations per second; ± gives the JMH 99.9% confidence-interval half-width. Higher is better.
+
+| Workload | Optimistic | Pessimistic | Locked |
+| --- | ---: | ---: | ---: |
+| Transfer | 8.823 ± 0.339 | 7.476 ± 0.169 | 44.523 ± 0.748 |
+| Reader/writer total | 21.220 ± 0.944 | 19.526 ± 1.477 | 60.344 ± 0.991 |
+| Reads | 18.521 ± 0.921 | 16.761 ± 1.549 | 47.100 ± 1.034 |
+| Writes | 2.699 ± 0.090 | 2.765 ± 0.178 | 13.244 ± 0.793 |
+
+The mixed group uses three readers and one transfer writer. Its total combines different operations. The locked baseline stores primitive balances behind one lock; STM also pays for boxing, tracking, history, and retries. That coarse lock wins this small-transfer workload by about 5× over optimistic STM. Optimistic transfers score about 18% above pessimistic transfers; the mixed-group intervals overlap.
+
+These results compare execution strategies with explicit hints, rather than test automatic selection. Machine details and source revisions were not captured, limiting reproducibility. The [raw JMH JSON](https://github.com/gchape/weft/blob/main/benchmark-results/current.json), [console log](https://github.com/gchape/weft/blob/main/benchmark-results/current.log), and [benchmark guide](https://github.com/gchape/weft/blob/main/weft-benchmark/README.md) provide the measurements, settings, and workload definitions.`,
 };
