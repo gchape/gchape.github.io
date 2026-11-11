@@ -1,4 +1,4 @@
-import { ArrowUpRight, Code } from "lucide-react";
+import { ArrowUpRight, Code, Play } from "lucide-react";
 import { useParams } from "wouter";
 import { NotFoundPage } from "@/app/not-found-page";
 import { BackLink } from "@/components/back-link";
@@ -28,11 +28,17 @@ export function ProjectPage() {
 			{project.image && (
 				<img
 					src={project.image}
+					srcSet={project.imageSrcSet}
+					sizes="(min-width: 848px) 686px, (min-width: 640px) calc(100vw - 162px), calc(100vw - 90px)"
+					fetchPriority="high"
+					decoding="async"
 					alt={project.imageAlt ?? project.title}
-					className="mb-10 aspect-video w-full rounded border border-border object-cover"
+					className="mb-10 aspect-video w-full rounded border border-border object-contain"
+					width={1280}
+					height={720}
 				/>
 			)}
-			{(project.url || project.github) && (
+			{(project.url || project.github || project.video) && (
 				<div className="mb-10 flex flex-wrap gap-5 text-sm">
 					{project.url && (
 						<Button
@@ -43,6 +49,17 @@ export function ProjectPage() {
 						>
 							Visit site
 							<ArrowUpRight aria-hidden="true" />
+						</Button>
+					)}
+					{project.video && (
+						<Button
+							variant="outline"
+							size="sm"
+							nativeButton={false}
+							render={<a href={project.video} target="_blank" rel="noopener noreferrer" />}
+						>
+							Watch demo
+							<Play aria-hidden="true" />
 						</Button>
 					)}
 					{project.github && (

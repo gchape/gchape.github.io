@@ -8,6 +8,10 @@ export const velis: Project = {
 	category: "Systems",
 	tags: ["Python", "asyncio", "TCP"],
 	github: "https://github.com/gchape/velis",
+	image: "/images/projects/velis-1280.webp",
+	imageSrcSet: "/images/projects/velis-640.webp 640w, /images/projects/velis-1280.webp 1280w",
+	imageAlt: "Velis promotional image showing the terminal workspace",
+	video: "https://github.com/user-attachments/assets/3e8a388c-35b3-4814-bc9e-466efc932780",
 	content: `## A cache you can explore
 
 Velis brings together an in-memory store, channel subscriptions, a TCP server, an asynchronous Python client, and an interactive terminal. You can give a value a lifetime, watch it expire, or send a message to connected subscribers.
