@@ -23,7 +23,9 @@ try {
 		if (!app("main h1").length) {
 			throw new Error(`Missing visible page content in static output for ${page.path}`);
 		}
-		const metadata = app("[data-seo]").remove();
+		// React hoists title/meta/link elements, but inline JSON-LD stays in the tree.
+		// Keep that script in place so the browser can hydrate the same markup.
+		const metadata = app("[data-seo]:not(script)").remove();
 		$("head").append(metadata.toArray());
 		$("#root").attr("data-prerendered", "true").html(app.html());
 		const file =

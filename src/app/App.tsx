@@ -7,10 +7,16 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { AboutPage } from "@/features/about/about-page";
 import { BlogPage } from "@/features/blog/blog-page";
-import { PortfolioPage } from "@/features/portfolio/portfolio-page";
 
+const AboutPage = lazy(() =>
+	import("@/features/about/about-page").then(({ AboutPage }) => ({ default: AboutPage })),
+);
+const PortfolioPage = lazy(() =>
+	import("@/features/portfolio/portfolio-page").then(({ PortfolioPage }) => ({
+		default: PortfolioPage,
+	})),
+);
 const ArticlePage = lazy(() =>
 	import("@/features/blog/article-page").then(({ ArticlePage }) => ({ default: ArticlePage })),
 );

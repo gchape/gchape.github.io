@@ -7,10 +7,27 @@ export function MermaidDiagram({ chart }: { chart: string }) {
 	const { resolvedTheme } = useTheme();
 	const id = `diagram-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
 	const container = useRef<HTMLDivElement>(null);
+	const figure = useRef<HTMLElement>(null);
+	const [visible, setVisible] = useState(false);
 	const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
 	const title = /^\s*accTitle:\s*(.+)$/m.exec(chart)?.[1] ?? "Architecture diagram";
 
 	useEffect(() => {
+		if (!figure.current) return;
+		const observer = new IntersectionObserver(
+			(entries) => {
+				if (!entries.some((entry) => entry.isIntersecting)) return;
+				setVisible(true);
+				observer.disconnect();
+			},
+			{ rootMargin: "300px" },
+		);
+		observer.observe(figure.current);
+		return () => observer.disconnect();
+	}, []);
+
+	useEffect(() => {
+		if (!visible) return;
 		let active = true;
 		setStatus("loading");
 		renderQueue = renderQueue
@@ -54,10 +71,13 @@ export function MermaidDiagram({ chart }: { chart: string }) {
 		return () => {
 			active = false;
 		};
-	}, [chart, id, resolvedTheme]);
+	}, [chart, id, resolvedTheme, visible]);
 
 	return (
-		<figure className="not-prose my-8 overflow-hidden rounded-2xl border border-border/70 bg-background/70">
+		<figure
+			ref={figure}
+			className="not-prose my-8 overflow-hidden rounded-2xl border border-border/70 bg-background/70"
+		>
 			<section
 				tabIndex={0}
 				aria-label={title}
