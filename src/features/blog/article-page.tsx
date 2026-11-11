@@ -1,7 +1,7 @@
 import { useParams } from "wouter";
 import { NotFoundPage } from "@/app/not-found-page";
 import { BackLink } from "@/components/back-link";
-import { Markdown } from "@/components/content/markdown";
+import { lazyMarkdown } from "@/components/content/lazy-markdown";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { profile } from "@/content/profile";
@@ -9,10 +9,14 @@ import { PostList } from "@/features/blog/components/post-list";
 import { posts } from "@/features/blog/content/posts";
 import { formatDate } from "@/lib/format-date";
 
+const bodies = import.meta.glob<string>("./content/posts/*.md", { import: "default" });
+const contentComponents = lazyMarkdown(bodies);
+
 export function ArticlePage() {
 	const { slug } = useParams<{ slug: string }>();
 	const post = posts.find((post) => post.slug === slug);
-	if (!post) return <NotFoundPage />;
+	const Content = contentComponents[slug];
+	if (!post || !Content) return <NotFoundPage />;
 	const related = posts.filter((item) => item.slug !== post.slug).slice(0, 2);
 	return (
 		<article className="mx-auto max-w-3xl rounded-2xl border border-border/70 bg-card/95 p-6 shadow-sm sm:p-10">
@@ -36,7 +40,7 @@ export function ArticlePage() {
 				)}
 			</header>
 			<Separator className="mb-10" />
-			<Markdown content={post.content} />
+			<Content />
 			<Separator className="mt-12" />
 			<div className="pt-6 text-sm text-muted-foreground">
 				Have a thought on this?{" "}

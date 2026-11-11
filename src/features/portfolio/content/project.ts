@@ -8,7 +8,6 @@ export type Project = {
 	imageSrcSet?: string;
 	imageAlt?: string;
 	video?: string;
-	content: string;
 	url?: string;
 	github?: string;
 };

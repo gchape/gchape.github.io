@@ -2,16 +2,20 @@ import { ArrowUpRight, Code, Play } from "lucide-react";
 import { useParams } from "wouter";
 import { NotFoundPage } from "@/app/not-found-page";
 import { BackLink } from "@/components/back-link";
-import { Markdown } from "@/components/content/markdown";
+import { lazyMarkdown } from "@/components/content/lazy-markdown";
 import { PageHeading } from "@/components/page-heading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/features/portfolio/content/projects";
 
+const bodies = import.meta.glob<string>("./content/bodies/*.ts", { import: "default" });
+const contentComponents = lazyMarkdown(bodies);
+
 export function ProjectPage() {
 	const { slug } = useParams<{ slug: string }>();
 	const project = projects.find((project) => project.slug === slug);
-	if (!project) return <NotFoundPage />;
+	const Content = contentComponents[slug];
+	if (!project || !Content) return <NotFoundPage />;
 	return (
 		<article className="mx-auto max-w-3xl rounded-2xl border border-border/70 bg-card/95 p-6 shadow-sm sm:p-10">
 			<BackLink href="/portfolio">All projects</BackLink>
@@ -75,7 +79,7 @@ export function ProjectPage() {
 					)}
 				</div>
 			)}
-			<Markdown content={project.content} />
+			<Content />
 		</article>
 	);
 }
