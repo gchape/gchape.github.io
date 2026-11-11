@@ -24,7 +24,7 @@ export const pages: PageMetadata[] = [
 		path: "/portfolio",
 		title: `Projects — ${profile.name}`,
 		description:
-			"Explore Giorgi Chapidze's software projects: Velis, Beauty Code, IASTM, and research into software transactional memory in Clojure.",
+			"Explore Giorgi Chapidze's software projects: Velis, Beauty Code, Gym CRM, IASTM, and research into software transactional memory in Clojure.",
 		schemaType: "CollectionPage",
 	},
 	{

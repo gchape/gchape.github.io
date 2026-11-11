@@ -1,11 +1,12 @@
 import { bachelorThesis } from "./projects/bachelor-thesis";
 import { beautyCode } from "./projects/beautycode";
+import { gymCrm } from "./projects/gym-crm";
 import { iastm } from "./projects/iastm";
 import { velis } from "./projects/velis";
 
 export type { Project } from "./project";
 
-export const projects = [velis, beautyCode, iastm, bachelorThesis];
+export const projects = [velis, beautyCode, gymCrm, iastm, bachelorThesis];
 
 export const themes = [
 	{
@@ -17,8 +18,8 @@ export const themes = [
 		text: "Velis, a key-value store with TTL expiry, pub/sub, and a binary TCP protocol, built on a single asyncio event loop.",
 	},
 	{
-		title: "Web apps",
-		text: "Beauty Code, a production storefront with search, an admin interface, Docker, and Terraform.",
+		title: "Applications and APIs",
+		text: "Beauty Code, a production storefront, and Gym CRM, a Java backend with relational persistence and Kafka-driven workload tracking.",
 	},
 ];
 
