@@ -86,6 +86,7 @@ function CodeBlockCopyButton({
 	...props
 }: React.ComponentProps<typeof Button> & { value: string }) {
 	const [copied, setCopied] = React.useState(false);
+	const [error, setError] = React.useState(false);
 
 	React.useEffect(() => {
 		if (!copied) {
@@ -105,19 +106,25 @@ function CodeBlockCopyButton({
 				size={size}
 				aria-label={copied ? "Copied" : "Copy"}
 				className={className}
-				onClick={(event) => {
+				onClick={async (event) => {
 					onClick?.(event);
-					navigator.clipboard
-						.writeText(value)
-						.then(() => setCopied(true))
-						.catch(() => {});
+					if (event.defaultPrevented) return;
+					setError(false);
+					setCopied(false);
+					try {
+						if (!navigator.clipboard?.writeText) throw new Error("Clipboard unavailable");
+						await navigator.clipboard.writeText(value);
+						setCopied(true);
+					} catch {
+						setError(true);
+					}
 				}}
 				{...props}
 			>
 				{copied ? <CheckIcon /> : <CopyIcon />}
 			</Button>
-			<span aria-live="polite" className="sr-only">
-				{copied ? "Copied" : ""}
+			<span aria-live="polite" className={error ? "px-3 text-xs text-destructive" : "sr-only"}>
+				{error ? "Copy failed. Select the code and copy it manually." : copied ? "Copied" : ""}
 			</span>
 		</>
 	);
