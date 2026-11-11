@@ -10,5 +10,6 @@ export const weft: Project = {
 	github: "https://github.com/gchape/weft",
 	image: "/images/projects/weft-1280.webp",
 	imageSrcSet: "/images/projects/weft-640.webp 640w, /images/projects/weft-1280.webp 1280w",
-	imageAlt: "Weft woven logo and wordmark: Software transactional memory for Java",
+	imageAlt:
+		"Weft — transactional memory for Java. Two transactions buffer writes, then validate and commit to shared state.",
 };
