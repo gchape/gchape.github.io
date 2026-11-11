@@ -1,17 +1,17 @@
 import { bachelorThesis } from "./projects/bachelor-thesis";
 import { beautyCode } from "./projects/beautycode";
 import { gymCrm } from "./projects/gym-crm";
-import { iastm } from "./projects/iastm";
+import { weft } from "./projects/weft";
 import { velis } from "./projects/velis";
 
 export type { Project } from "./project";
 
-export const projects = [velis, beautyCode, gymCrm, iastm, bachelorThesis];
+export const projects = [velis, beautyCode, gymCrm, weft, bachelorThesis];
 
 export const themes = [
 	{
 		title: "Concurrency and transactions",
-		text: "Software transactional memory in Java (IASTM) and Clojure (my thesis), with a focus on contention, retries, and measured performance.",
+		text: "Software transactional memory in Java (Weft) and Clojure (my thesis), with a focus on contention, retries, and measured performance.",
 	},
 	{
 		title: "Systems",

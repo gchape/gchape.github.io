@@ -8,6 +8,9 @@ export const gymCrm: Project = {
 	category: "Backend",
 	tags: ["Java", "Spring Boot", "PostgreSQL", "Kafka", "MongoDB"],
 	github: "https://github.com/gchape/gym-crm",
+	image: "/images/projects/gym-crm.svg",
+	imageAlt:
+		"Gym CRM — members, trainers, and training sessions. Java and Spring Boot with PostgreSQL, Kafka, and MongoDB.",
 	content: `## From training sessions to monthly workload
 
 Gym CRM began during my EPAM Java Lab internship. I later modernized it as a portfolio project, adding a reproducible multi-module build, documented REST APIs, and database and messaging integration tests.

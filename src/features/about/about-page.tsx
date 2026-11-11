@@ -58,7 +58,7 @@ export function AboutPage() {
 						easier to explore.
 					</p>
 					<p>
-						<TextLink href="/portfolio/iastm">IASTM</TextLink> explores choosing between optimistic
+						<TextLink href="/portfolio/weft">Weft</TextLink> explores choosing between optimistic
 						transactions and early write locking in Java. My{" "}
 						<TextLink href="/portfolio/bachelor-thesis">Clojure STM thesis</TextLink> studies
 						consistent snapshots and coordinating side effects with transaction outcomes. Both
