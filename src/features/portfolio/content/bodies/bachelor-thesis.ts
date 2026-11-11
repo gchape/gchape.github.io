@@ -39,6 +39,12 @@ flowchart TB
 
 The [implementation chapter](https://github.com/gchape/bachelor-thesis/blob/main/chapters/implementation.tex) follows the reference layout, ownership protocol, retry loop, and hook dispatch.
 
+## Reading the research
+
+The repository contains the LaTeX thesis, formal argument, implementation listings, and recorded evaluation. It is a research artifact, rather than a packaged application with a quick-start API. The opacity argument concerns the model presented in the thesis; it should not be read as independent verification of every implementation detail.
+
+Lifecycle hooks coordinate effects with transaction outcomes inside the process. They do not, by themselves, provide durable delivery of notifications or other external effects across a process crash.
+
 ## What the experiments found
 
 The experiments ran with Clojure 1.12.4 and OpenJDK 25.0.2 on a six-core Ryzen 5 7535HS. The contrasting read/write workloads make the design's main tradeoff visible:

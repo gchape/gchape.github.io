@@ -50,6 +50,14 @@ Weft.atomic(() -> {
 
 The agent can supply metrics at load time; callers can also provide explicit metrics through the overloaded entry point.
 
+## Usage boundaries and verification
+
+Transaction bodies can run more than once, so I/O and irreversible effects belong outside them. Values should be immutable or replaced through \`Weft.write\`; mutating an object returned by a read bypasses transactional buffering. Nested transactions share the outer attempt and have no savepoints. An attempt belongs to one thread, including when scoped bindings are inherited by structured subtasks.
+
+Retries are bounded: after the initial attempt and 512 retries, a persistent conflict raises \`MaxRetriesExceededException\`. Optimistic readers can consult retained history, while pessimistic readers retry when the latest value is newer than their snapshot. History starts at 32 entries and can be resized explicitly; it does not grow automatically.
+
+With JDK 25, \`./mvnw clean verify\` builds all three modules and runs core, agent, and benchmark workload tests, including attachment of the packaged agent in a separate JVM. No preview flags are required. The [usage and build guide](https://github.com/gchape/weft#build-and-test) covers setup and the API's boundaries.
+
 ## What the benchmarks compare
 
 The JMH suite compares optimistic transactions, pessimistic write locking, and a lock-based implementation. It covers transfers, concurrent reader/writer groups, configurable access patterns, and instrumentation workloads. Untimed checks verify balances, increments, and agent activation.

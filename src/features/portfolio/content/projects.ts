@@ -32,7 +32,7 @@ export const otherRepos: { name: string; language: string; note?: string }[] = [
 	{
 		name: "flashcards-extension",
 		language: "TypeScript",
-		note: "A flashcard extension, with interface previews in the repository.",
+		note: "A browser-extension prototype with a React interface and bucket-based spaced repetition, adjusting review intervals from answer difficulty.",
 	},
 	{
 		name: "projectile-motion",

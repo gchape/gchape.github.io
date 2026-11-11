@@ -53,6 +53,12 @@ async def example():
 asyncio.run(example())
 \`\`\`
 
+## Running and checking it
+
+The [setup guide](https://github.com/gchape/velis#installation) requires Python 3.15.2 or newer. Run \`uv sync\` in the checkout, start the server with \`uv run velis\`, and open the terminal workspace separately with \`uv run python -m velis.tui\`. The application has no runtime package dependencies.
+
+Tests use unittest and Hypothesis, including generated cache-operation sequences checked against an independent LRU model. Coverage includes eviction policies, expiry, protocol handling, client lifecycle, TCP integration, and terminal behavior. Ruff, ty, and Pyright provide additional static checks; the [development section](https://github.com/gchape/velis#development) lists the commands.
+
 ## What batching changes
 
 The repository's November 10, 2026 localhost run used one connection, 64-byte values, and three measured repeats. Median throughput through \`Client.batch()\` changed substantially when the submitted depth increased:

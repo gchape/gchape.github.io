@@ -38,6 +38,12 @@ flowchart TB
 
 The [application documentation](https://github.com/gchape/beautycode#application-architecture) explains these boundaries and the catalog's visibility rules.
 
+## Responsiveness and measurement
+
+Catalog navigation reuses TanStack Query data and intent preloads, with category metadata and products loading in parallel. Admin updates invalidate both public and admin queries. Deferred search keeps typing responsive, while React Activity boundaries preserve editor drafts across admin tabs.
+
+Georgian fonts are self-hosted and preloaded. Crisp loads asynchronously, and product images use responsive delivery. These are implementation choices rather than a guarantee of a particular performance score. The [storefront documentation](https://github.com/gchape/beautycode#storefront-and-font-loading) distinguishes production measurements from development behavior; conversion tracking still needs an analytics destination and completed-order integration.
+
 ## Images and recovery
 
 Uploads are checked for file size and signature before the original goes to Cloudinary. Product cards and galleries request responsive image sizes with automatic format and quality selection.

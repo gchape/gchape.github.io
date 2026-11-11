@@ -32,7 +32,7 @@ RSA-signed JWTs authenticate requests, and BCrypt protects stored passwords. The
 
 ## Running and verifying the system
 
-The standalone API uses an in-memory H2 database for a quick local demonstration. Docker Compose runs the full PostgreSQL, MongoDB, and Kafka stack. The Maven reactor builds the API, workload service, shared contracts, and optional configuration server together.
+The project provides REST services rather than a browser frontend. It requires JDK 25. The standalone API uses an in-memory H2 database for a quick local demonstration; its data resets on shutdown and workload publishing is disabled. Docker Compose runs the full PostgreSQL, MongoDB, and Kafka stack. The Maven reactor builds the API, workload service, shared contracts, and optional configuration server together.
 
 Tests exercise the HTTP workflow with real JWTs, PostgreSQL migrations and queries, and Kafka-to-MongoDB workload processing. Testcontainers supplies infrastructure for integration tests, and Cucumber covers application workflows.
 
@@ -40,6 +40,6 @@ See the [README](https://github.com/gchape/gym-crm#quick-start-standalone-api) f
 
 ## Delivery tradeoffs
 
-Publishing after the database commit leaves a failure window between persistence and messaging. A transactional outbox and idempotent consumers remain follow-up work: redelivery can currently double-count workload events. Legacy profile and workload endpoints also need a more complete authorization model, and issued JWTs remain valid until expiry after password changes or account deactivation.
+Publishing after the database commit leaves a failure window between persistence and messaging. A transactional outbox and idempotent consumers remain follow-up work: redelivery can currently double-count workload events. Dead-letter recovery currently handles decoded events; malformed JSON still needs a deserialization recovery policy. Legacy profile and workload endpoints also need a more complete authorization model, and issued JWTs remain valid until expiry after password changes or account deactivation.
 
 The project models date-based sessions; timeslot conflicts, attendance, memberships, and billing are outside its current scope.`;
