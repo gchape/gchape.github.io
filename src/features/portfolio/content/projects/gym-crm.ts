@@ -8,7 +8,4 @@ export const gymCrm: Project = {
 	category: "Backend",
 	tags: ["Java", "Spring Boot", "PostgreSQL", "Kafka", "MongoDB"],
 	github: "https://github.com/gchape/gym-crm",
-	image: "/images/projects/gym-crm.svg",
-	imageAlt:
-		"Gym CRM — members, trainers, and training sessions. Java and Spring Boot with PostgreSQL, Kafka, and MongoDB.",
 };

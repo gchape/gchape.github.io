@@ -15,17 +15,17 @@ import type { Project } from "@/features/portfolio/content/projects";
 
 export function ProjectList({ projects }: { projects: Project[] }) {
 	return (
-		<ItemGroup className="grid gap-5 md:grid-cols-2">
+		<ItemGroup className="block columns-1 gap-5 md:columns-2">
 			{projects.map((project, index) => (
 				<li
 					key={project.slug}
 					style={{ animationDelay: `${Math.min(index, 6) * 55}ms` }}
-					className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-2 motion-safe:fill-mode-both motion-safe:duration-650 motion-safe:ease-smooth"
+					className="mb-5 break-inside-avoid motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-2 motion-safe:fill-mode-both motion-safe:duration-650 motion-safe:ease-smooth"
 				>
 					<Item
 						variant="outline"
 						render={<Link href={`/portfolio/${project.slug}`} />}
-						className="h-full gap-6 overflow-hidden p-6 hover:border-primary/25 hover:shadow-md hover:shadow-foreground/5 motion-safe:duration-400 motion-safe:hover:-translate-y-0.5 sm:p-8"
+						className="gap-6 overflow-hidden p-6 hover:border-primary/25 hover:shadow-md hover:shadow-foreground/5 motion-safe:duration-400 motion-safe:hover:-translate-y-0.5 sm:p-8"
 					>
 						<ItemHeader className="text-xs font-medium text-primary">{project.category}</ItemHeader>
 						{project.image && (
