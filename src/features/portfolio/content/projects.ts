@@ -1,8 +1,8 @@
 import { bachelorThesis } from "./projects/bachelor-thesis";
 import { beautyCode } from "./projects/beautycode";
 import { gymCrm } from "./projects/gym-crm";
-import { weft } from "./projects/weft";
 import { velis } from "./projects/velis";
+import { weft } from "./projects/weft";
 
 export type { Project } from "./project";
 
