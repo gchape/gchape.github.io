@@ -28,7 +28,7 @@ jobs:
       - name: Set up pnpm
         uses: pnpm/action-setup@v6
         with:
-          version: 12.16.1
+          version: 12.18.0
           cache: true
 
       - name: Install dependencies
@@ -36,6 +36,9 @@ jobs:
 
       - name: Check code
         run: pnpm check
+
+      - name: Check unused code and dependencies
+        run: pnpm unused
 
       - name: Test content validation
         run: pnpm test
