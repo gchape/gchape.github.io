@@ -13,6 +13,7 @@ export const profile = {
 			label: "Frameworks and data",
 			items: [
 				"React",
+				"Node.js",
 				"Spring Boot",
 				"Spring Data",
 				"Spring Cloud",
