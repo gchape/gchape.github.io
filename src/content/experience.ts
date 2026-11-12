@@ -8,6 +8,11 @@ export const ohooq = {
 
 export const beautyCodeWork = {
 	role: "CTO / technical lead",
+	resumeHighlights: [
+		"Build and maintain a React storefront and catalog admin that connect product discovery to item-specific customer conversations",
+		"Keep product edits, galleries, and audit records consistent through SQLite transactions; preserve product URLs when names change",
+		"Operate the store on AWS EC2 with Docker and nginx; maintain S3 database snapshots and integrity-checked restoration",
+	],
 	context: "Beauty Code is an online store with around 22,000 followers on Facebook.",
 	summary:
 		"I handle the store's technical work: building and maintaining the storefront, catalog tools, image delivery, and deployment, and solving technical problems as they come up.",
@@ -59,7 +64,7 @@ export const training: Training[] = [
 	{
 		title: "Quality Engineering & Test Automation",
 		org: "TBC IT Academy",
-		status: "Accepted",
+		status: "Ongoing",
 		url: "https://tbcbank.ge/en/tbc-education/it-academy/test-automation",
 		summary:
 			"A 120-hour program delivered online through 60 lectures on Microsoft Teams. The curriculum covers manual and automated testing, defect prevention, and software quality across the development lifecycle.",

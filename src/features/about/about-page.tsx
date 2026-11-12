@@ -2,6 +2,7 @@ import { PageHeading } from "@/components/page-heading";
 import { Panel } from "@/components/panel";
 import { SocialLinks } from "@/components/social-links";
 import { ExternalLink, linkClass, TextLink } from "@/components/text-link";
+import { Badge } from "@/components/ui/badge";
 import { beautyCodeWork, education, ohooq, training } from "@/content/experience";
 import { profile } from "@/content/profile";
 
@@ -36,6 +37,33 @@ export function AboutPage() {
 						closely. My work with Beauty Code and my plans for Ohooq explore that direction.
 					</p>
 				</Panel>
+				<AboutSection
+					id="skills"
+					title="Skills & tools"
+					subtitle="Technologies I use across my projects."
+				>
+					<dl className="space-y-5">
+						{profile.skills.map((group) => (
+							<div key={group.label} className="grid gap-2 sm:grid-cols-[11rem_1fr] sm:gap-4">
+								<dt className="font-medium text-foreground">{group.label}</dt>
+								<dd>
+									<ul className="flex flex-wrap gap-2" aria-label={group.label}>
+										{group.items.map((skill) => (
+											<li key={skill}>
+												<Badge variant="secondary" className="text-xs">
+													{skill}
+												</Badge>
+											</li>
+										))}
+									</ul>
+								</dd>
+							</div>
+						))}
+					</dl>
+					<p>
+						<TextLink href="/portfolio">See these tools in my projects</TextLink>
+					</p>
+				</AboutSection>
 				<AboutSection id="ohooq" title={ohooq.name} subtitle="GitHub organization">
 					<p>{ohooq.summary}</p>
 					<p>I'm planning a shared space for tools such as:</p>

@@ -142,6 +142,7 @@ Project promo images live in `public/images/projects/` as responsive WebP files.
 ## Personalize
 
 - Contact links: `src/content/profile.ts`.
+- Skills & tools: edit `profile.skills` in `src/content/profile.ts`. Each group has a `label` and an `items` list. The About page (`/about/#skills`) and generated resume use the same list; rebuild to update the PDF.
 - Education, training, Ohooq plans, and Beauty Code role: `src/content/experience.ts`.
 - Introduction and About copy: `src/features/blog/blog-page.tsx` and `src/features/about/about-page.tsx`.
 - Light and dark colors: `src/index.css`.
@@ -173,3 +174,5 @@ The initial pages use pre-rendered HTML, with JSON-LD kept in the React tree to 
 `pnpm build` generates `dist/resume.pdf` with `@react-pdf/renderer`. The About page links to this download. The PDF reuses profile, experience, education, training, and project content; edit those shared files to update both outputs. Its layout lives in `src/features/resume/resume-document.tsx`.
 
 Run `pnpm resume` to regenerate the PDF alone. To try the download locally, run `pnpm build` followed by `pnpm preview`; the generated PDF is a build artifact and is not served by `pnpm dev`. PDF generation runs only at build time and adds no PDF library to the website's browser bundle.
+
+The resume follows the supplied _Beyond Cracking the Coding Interview_ guide, with concise highlights stored alongside experience and project data. See [resume design notes](docs/resume-design.md) for sources, content choices, and verification. It selectively includes three projects and technical training rather than every section on the website.

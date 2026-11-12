@@ -2,6 +2,7 @@ export type Project = {
 	slug: string;
 	title: string;
 	description: string;
+	resumeHighlights?: string[];
 	category: string;
 	tags: string[];
 	image?: string;

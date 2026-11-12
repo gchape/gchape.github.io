@@ -14,7 +14,7 @@
 		"typecheck": "tsc -b",
 		"test": "node --test src/features/blog/content/post-metadata.test.mjs",
 		"unused": "knip",
-		"resume": "tsx --tsconfig tsconfig.app.json scripts/generate-resume.tsx"
+		"resume": "tsx --tsconfig tsconfig.scripts.json scripts/generate-resume.tsx"
 	},
 	"knip": {
 		"entry": [

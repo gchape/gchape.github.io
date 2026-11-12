@@ -14,7 +14,7 @@ export function AboutSection({
 }) {
 	const headingId = `${id}-heading`;
 	return (
-		<Panel aria-labelledby={headingId}>
+		<Panel id={id} aria-labelledby={headingId}>
 			<h2 id={headingId} className="font-sans text-base font-semibold">
 				{title}
 			</h2>
