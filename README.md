@@ -167,3 +167,9 @@ The deployed sitemap is <https://gchape.github.io/sitemap.xml>. It is also adver
 See [the maintenance audit](docs/maintenance-audit.md) for the latest dependency review, browser checks, and measured loading changes. `pnpm-workspace.yaml` contains targeted security overrides for transitive build dependencies; remove each override when its parent dependency adopts the patched version.
 
 The initial pages use pre-rendered HTML, with JSON-LD kept in the React tree to preserve hydration. About, Portfolio, and detail pages load their own route code on demand. Body and heading fonts are preloaded; other font subsets load only when their characters are used. Diagram rendering waits until the figure approaches the viewport.
+
+## Generated resume
+
+`pnpm build` generates `dist/resume.pdf` with `@react-pdf/renderer`. The About page links to this download. The PDF reuses profile, experience, education, training, and project content; edit those shared files to update both outputs. Its layout lives in `src/features/resume/resume-document.tsx`.
+
+Run `pnpm resume` to regenerate the PDF alone. To try the download locally, run `pnpm build` followed by `pnpm preview`; the generated PDF is a build artifact and is not served by `pnpm dev`. PDF generation runs only at build time and adds no PDF library to the website's browser bundle.

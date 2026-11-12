@@ -17,6 +17,11 @@ export function AboutPage() {
 					full-stack development, AI automation, and agents, alongside concurrency, databases, and
 					systems programming.
 				</p>
+				<p className="mt-4">
+					<a href="/resume.pdf" download className={linkClass}>
+						Download resume (PDF)
+					</a>
+				</p>
 			</PageHeading>
 			<div className="max-w-3xl space-y-10">
 				<Panel className="space-y-7 text-lg leading-8 text-muted-foreground">
