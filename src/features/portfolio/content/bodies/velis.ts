@@ -6,7 +6,7 @@ The terminal keeps keys, value previews, and recent activity in separate panes. 
 
 ## Keeping work bounded
 
-A single asyncio event loop owns the store and subscription broker. Core operations run synchronously, while connections handle I/O and flow control. Memory mutations happen on one thread.
+A **single asyncio event loop** owns the store and subscription broker. Core operations run synchronously, while connections handle I/O and flow control. Memory mutations happen on one thread.
 
 - **Expiration:** monotonic deadlines keep lifetimes independent of wall-clock changes. Reads discard expired values, and background sweeps reclaim them in bounded batches.
 - **Capacity:** key and byte budgets work with interchangeable S3-FIFO, LRU, and LFU eviction policies.
@@ -55,7 +55,7 @@ asyncio.run(example())
 
 ## Running and checking it
 
-The [setup guide](https://github.com/gchape/velis#installation) requires Python 3.15.2 or newer. Run \`uv sync\` in the checkout, start the server with \`uv run velis\`, and open the terminal workspace separately with \`uv run python -m velis.tui\`. The application has no runtime package dependencies.
+The [setup guide](https://github.com/gchape/velis#installation) requires Python 3.15.2 or newer. Run \`uv sync\` in the checkout, start the server with \`uv run velis\`, and open the terminal workspace separately with \`uv run python -m velis.tui\`. The application has **no runtime package dependencies**.
 
 Tests use unittest and Hypothesis, including generated cache-operation sequences checked against an independent LRU model. Coverage includes eviction policies, expiry, protocol handling, client lifecycle, TCP integration, and terminal behavior. Ruff, ty, and Pyright provide additional static checks; the [development section](https://github.com/gchape/velis#development) lists the commands.
 
@@ -72,4 +72,4 @@ Those measurements used CPython 3.15.2 on a Ryzen 5 7535HS. They show the effect
 
 ## Tradeoffs
 
-Values and deadlines live in process memory. Pub/sub delivers to connected subscribers at most once. Batches preserve reply order but are not transactions, and cancelling a sent request does not undo its server-side effects. Authentication and TLS are outside the current implementation.`;
+Values and deadlines live in process memory. Pub/sub delivers to connected subscribers *at most once*. Batches preserve reply order but are not transactions, and cancelling a sent request does not undo its server-side effects. Authentication and TLS are outside the current implementation.`;

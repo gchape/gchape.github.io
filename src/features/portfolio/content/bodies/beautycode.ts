@@ -7,13 +7,13 @@ Product chat actions pass the item's name, price, and page URL into Crisp, givin
 
 ## My role
 
-I serve as Beauty Code's CTO and technical lead. ${beautyCodeWork.summary}
+I serve as Beauty Code's **CTO and technical lead**. ${beautyCodeWork.summary}
 
 ${beautyCodeWork.context}
 
 ## Keeping the catalog consistent
 
-The admin interface manages products, categories, availability, and ordered image galleries. Publishing state and stock state are separate: drafts stay private, preorders remain visible, and an out-of-stock item keeps its page while its order action is disabled.
+The admin interface manages products, categories, availability, and ordered image galleries. **Publishing state and stock state are separate**: drafts stay private, preorders remain visible, and an out-of-stock item keeps its page while its order action is disabled.
 
 A product save updates its fields, gallery references, and audit record in one SQLite transaction. Full-text search indexes follow database changes through triggers. Renaming a product preserves its existing slug, so links continue to work.
 
@@ -54,4 +54,4 @@ Database snapshots preserve the catalog, search data, galleries, and audit histo
 
 The deployment uses Docker Compose and nginx on one EC2 host. Terraform defines the network, instance, role, Elastic IP, and S3 backup bucket. nginx handles HTTPS and admin authentication, while the application stays on the private container network.
 
-This keeps the operational model small, with a clear recovery tradeoff: replacing the host requires restoring the catalog, and the setup has no automatic failover. The [deployment and recovery guide](https://github.com/gchape/beautycode#production-deployment) covers releases, backups, and restoration. Tests cover catalog behavior, authorization, search, backups, and SEO.`;
+This keeps the operational model small, with a clear recovery tradeoff: replacing the host requires restoring the catalog, and the setup has *no automatic failover*. The [deployment and recovery guide](https://github.com/gchape/beautycode#production-deployment) covers releases, backups, and restoration. Tests cover catalog behavior, authorization, search, backups, and SEO.`;

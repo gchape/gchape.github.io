@@ -1,18 +1,18 @@
 export default `## Bachelor's thesis
 
-*Design and Evaluation of an MVCC-Based STM in Clojure*, completed at Kutaisi International University in 2026.
+*Design and Evaluation of an MVCC-Based STM in Clojure*, completed at **Kutaisi International University** in 2026.
 
 ## The problem with retrying a side effect
 
 Imagine a bank-transfer transaction that also sends a notification. If a conflict makes the transaction retry, code inside its body can run again, including that notification. Updating shared state atomically does not by itself coordinate the external effect.
 
-The thesis develops a Clojure STM with transaction lifecycle hooks. An application can register work for a successful commit or an aborted attempt, placing the effect at the corresponding boundary.
+The thesis develops a Clojure STM with **transaction lifecycle hooks**. An application can register work for a successful commit or an aborted attempt, placing the effect at the corresponding boundary.
 
 ## A model and an implementation
 
 The implementation combines a variant of Transactional Locking II with multiversion concurrency control. Each reference keeps bounded version history, so a reader can look up a value at its transaction's snapshot. Writers claim ownership as they write, then validate and publish under a global commit lock.
 
-The [formal-model chapter](https://github.com/gchape/bachelor-thesis/blob/main/chapters/methodology.tex) defines the transaction states and presents an opacity proof. Opacity requires consistent observations even for transactions that eventually abort; checking only successful commits would leave that case uncovered.
+The [formal-model chapter](https://github.com/gchape/bachelor-thesis/blob/main/chapters/methodology.tex) defines the transaction states and presents an opacity proof. Opacity requires consistent observations *even for transactions that eventually abort*; checking only successful commits would leave that case uncovered.
 
 ## Transaction lifecycle
 

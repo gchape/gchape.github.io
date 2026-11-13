@@ -1,12 +1,12 @@
 export default `## Choosing when to take the locks
 
-Weft is a transactional memory library for Java 25. It buffers changes to shared transactional values and commits them together after validation, retrying conflicting attempts automatically.
+Weft is a **transactional memory library for Java 25**. It buffers changes to shared transactional values and commits them together after validation, retrying conflicting attempts automatically.
 
 The library explores when a transaction should check for conflicts optimistically or acquire write locks earlier. Read-heavy and write-heavy workloads can favor different answers. Weft combines both protocols behind \`TVar\` transactional variables and the \`Weft.atomic\`, \`read\`, and \`write\` API.
 
 ## From bytecode to a strategy
 
-The core defaults to optimistic execution and runs independently of the agent. An optional Java agent uses the JDK Class-File API to count transactional read and write call sites, resolve counts through nested lambdas, and inject a \`TransactionHints\` argument. These are static code counts; branches and loops can make the executed mix differ.
+The core defaults to optimistic execution and runs independently of the agent. An optional Java agent uses the JDK Class-File API to count transactional read and write call sites, resolve counts through nested lambdas, and inject a \`TransactionHints\` argument. These are *static code counts*; branches and loops can make the executed mix differ.
 
 The selector chooses optimistic execution for at least 80% reads, early write locking for at least 60% writes, and optimistic execution otherwise. That choice is made before the retry loop. Conflicts retry the same selected protocol with adaptive backoff.
 
@@ -52,7 +52,7 @@ The agent can supply metrics at load time; callers can also provide explicit met
 
 ## Usage boundaries and verification
 
-Transaction bodies can run more than once, so I/O and irreversible effects belong outside them. Values should be immutable or replaced through \`Weft.write\`; mutating an object returned by a read bypasses transactional buffering. Nested transactions share the outer attempt and have no savepoints. An attempt belongs to one thread, including when scoped bindings are inherited by structured subtasks.
+Transaction bodies can run more than once, so **I/O and irreversible effects belong outside them**. Values should be immutable or replaced through \`Weft.write\`; mutating an object returned by a read bypasses transactional buffering. Nested transactions share the outer attempt and have no savepoints. An attempt belongs to one thread, including when scoped bindings are inherited by structured subtasks.
 
 Retries are bounded: after the initial attempt and 512 retries, a persistent conflict raises \`MaxRetriesExceededException\`. Optimistic readers can consult retained history, while pessimistic readers retry when the latest value is newer than their snapshot. History starts at 32 entries and can be resized explicitly; it does not grow automatically.
 
