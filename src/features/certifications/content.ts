@@ -4,7 +4,6 @@ export type Certification = {
 	date: string;
 	dateLabel: string;
 	href: string;
-	featured?: boolean;
 };
 
 export const bootDevProfile = "https://www.boot.dev/u/gchape";
@@ -12,7 +11,6 @@ export const bootDevProfile = "https://www.boot.dev/u/gchape";
 export const certifications: Certification[] = [
 	{
 		title: "Master and Apply Redis for Scalable Systems",
-		featured: true,
 		issuer: "EDUCBA · Coursera",
 		date: "2026-10-04",
 		dateLabel: "October 4, 2026",
@@ -41,7 +39,6 @@ export const certifications: Certification[] = [
 	},
 	{
 		title: "Hibernate Performance Tuning",
-		featured: true,
 		issuer: "Thorben Janssen · Persistence Hub",
 		date: "2025-09-16",
 		dateLabel: "September 16, 2025",
@@ -63,7 +60,6 @@ export const certifications: Certification[] = [
 	},
 	{
 		title: "Threading Essentials",
-		featured: true,
 		issuer: "JavaSpecialists",
 		date: "2025-07-14",
 		dateLabel: "July 14, 2025",

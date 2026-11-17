@@ -6,8 +6,8 @@ export const velis: Project = {
 	description:
 		"A Python cache and pub/sub server with expiring byte values, bounded queues, and a terminal workspace for exploring a running store.",
 	resumeHighlights: [
-		"Built a Python cache with expiring keys, pub/sub, a binary TCP protocol, and a terminal client; bounded memory with byte budgets and eviction policies",
-		"Measured 144,491 reads/s at batch depth 64 versus 17,025 at depth 1 in a localhost benchmark (64-byte values, CPython 3.15.2, Ryzen 5 7535HS)",
+		"Built a Python cache with key expiry, bounded memory, pub/sub, and a binary TCP protocol",
+		"Measured 144,491 vs. 17,025 reads/s on localhost at batch depths 64 and 1 (64-byte values)",
 	],
 	category: "Systems",
 	tags: ["Python", "asyncio", "TCP"],

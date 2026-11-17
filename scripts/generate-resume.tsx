@@ -1,8 +1,26 @@
 import { mkdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
-import { renderToFile } from "@react-pdf/renderer";
+import { Font, renderToFile } from "@react-pdf/renderer";
 import { createElement } from "react";
-import { ResumeDocument } from "../src/features/resume/resume-document";
+import { ResumeDocument, resumeFontFamily } from "../src/features/resume/resume-document";
+
+Font.register({
+	family: resumeFontFamily,
+	fonts: [
+		{
+			src: fileURLToPath(
+				new URL("../src/features/resume/fonts/SourceSans3-Regular.ttf", import.meta.url),
+			),
+			fontWeight: 400,
+		},
+		{
+			src: fileURLToPath(
+				new URL("../src/features/resume/fonts/SourceSans3-Semibold.ttf", import.meta.url),
+			),
+			fontWeight: 600,
+		},
+	],
+});
 
 const output = new URL("../dist/", import.meta.url);
 await mkdir(output, { recursive: true });

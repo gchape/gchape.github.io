@@ -6,8 +6,8 @@ export const weft: Project = {
 	description:
 		"A Java 25 transactional memory library with snapshot reads, automatic retries, and an optional agent for choosing write-lock timing.",
 	resumeHighlights: [
-		"Built a Java transactional memory library with consistent snapshots, buffered writes, conflict retries, and optimistic or early-locking execution",
-		"Added a bytecode agent to select strategies from read/write call sites and JMH benchmarks to compare both protocols against a lock-based baseline",
+		"Built a Java transactional memory library with snapshot reads, buffered writes, and conflict retries",
+		"Selected lock timing with a bytecode agent and compared both strategies against a lock baseline in JMH",
 	],
 	category: "Systems",
 	tags: ["Java", "JVM instrumentation", "MVCC"],

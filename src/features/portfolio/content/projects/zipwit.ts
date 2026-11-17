@@ -24,8 +24,8 @@ export const zipwit: Project = {
 	category: "Ecommerce",
 	tags: ["Organization", "Ecommerce"],
 	resumeHighlights: [
-		"Build a bilingual clothing and footwear storefront with catalog search, accounts, carts, and bank-transfer checkout",
-		"Keep the live catalog, search, stock, and carts in a Redis Cluster; store orders, checkout drafts, and payment evidence transactionally in PostgreSQL",
+		"Build a bilingual storefront with catalog search, accounts, carts, and bank transfer checkout",
+		"Serve catalog and cart data from Redis Cluster and store orders and payment records in PostgreSQL",
 	],
 	github: zipwitOrganization.github,
 	image: {

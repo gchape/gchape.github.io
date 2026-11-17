@@ -7,13 +7,14 @@ export const zipwitOrganization = {
 
 export const beautyCodeWork = {
 	role: "CTO / technical lead",
+	dateRange: "Jan 2026 – Present",
 	resumeHighlights: [
-		"Build and maintain a React storefront and catalog admin that connect product discovery to item-specific customer conversations",
-		"Keep product edits, galleries, and audit records consistent through SQLite transactions; preserve product URLs when names change",
-		"Operate the store on AWS EC2 with Docker and nginx; maintain S3 database snapshots and integrity-checked restoration",
+		"Build and maintain a React storefront and admin tools for the product catalog",
+		"Keep catalog edits and audit records consistent with SQLite transactions. Preserve URLs on rename",
+		"Deploy on EC2 with Docker and Nginx and verify restores from S3 database snapshots",
 	],
 	context:
-		"Beauty Code is an online store with approximately GEL 10,000 in monthly revenue and 25,000+ social media followers.",
+		"Online store with about GEL 10,000 in monthly revenue and 25,000+ social media followers.",
 	summary:
 		"I handle the store's technical work: building and maintaining the storefront, catalog tools, image delivery, and deployment, and solving technical problems as they come up.",
 };
@@ -28,6 +29,7 @@ export type Training = {
 	title: string;
 	org: string;
 	status: string;
+	dateRange?: string;
 	summary: string;
 	topics: string[];
 	url?: string;
@@ -38,6 +40,7 @@ export const training: Training[] = [
 		title: "Java Internship (Specialization)",
 		org: "EPAM Lab",
 		status: "Completed · 22 weeks",
+		dateRange: "Apr – Sep 2026",
 		summary:
 			"A 22-week Java program covering engineering practice and architecture, with hands-on work in containers, data stores, and messaging.",
 		topics: [
@@ -65,6 +68,7 @@ export const training: Training[] = [
 		title: "Quality Engineering & Test Automation",
 		org: "TBC IT Academy",
 		status: "Ongoing",
+		dateRange: "Nov 2026 – Present",
 		url: "https://tbcbank.ge/en/tbc-education/it-academy/test-automation",
 		summary:
 			"A 120-hour program delivered online through 60 lectures on Microsoft Teams. The curriculum covers manual and automated testing, defect prevention, and software quality across the development lifecycle.",
