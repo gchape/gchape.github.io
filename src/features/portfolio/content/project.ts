@@ -6,9 +6,7 @@ export type Project = {
 	resumeHighlights?: string[];
 	category: string;
 	tags: string[];
-	image?: string;
-	imageSrcSet?: string;
-	imageAlt?: string;
+	image?: { src: string; alt: string; width: number; height: number };
 	video?: string;
 	url?: string;
 	github?: string;

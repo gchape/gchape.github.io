@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { load } from "cheerio";
@@ -22,6 +22,16 @@ try {
 		const app = load(await render(page.path), {}, false);
 		if (!app("main h1").length) {
 			throw new Error(`Missing visible page content in static output for ${page.path}`);
+		}
+		const imagePaths = new Set(
+			app('img[src^="/images/"], a[href^="/images/"]')
+				.toArray()
+				.map((element) => app(element).attr("src") ?? app(element).attr("href")),
+		);
+		for (const path of imagePaths) {
+			await access(join(output, path)).catch(() => {
+				throw new Error(`Missing image ${path} referenced by ${page.path}`);
+			});
 		}
 		// React hoists title/meta/link elements, but inline JSON-LD stays in the tree.
 		// Keep that script in place so the browser can hydrate the same markup.

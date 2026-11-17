@@ -31,14 +31,14 @@ export const pages: PageMetadata[] = [
 		path: "/about",
 		title: `About ${profile.name}, Software Developer`,
 		description:
-			"Meet Giorgi Chapidze: software developer, creator of the Zipwit ecommerce organization, and CTO / technical lead at Beauty Code, interested in full-stack development, AI automation, and agents.",
+			"Giorgi Chapidze is a software developer interested in how systems work, with a focus on maintainable architecture, databases, networking, clean interfaces, and AI automation.",
 		schemaType: "ProfilePage",
 	},
 	{
 		path: "/certifications",
 		title: `Certifications — ${profile.name}`,
 		description:
-			"Giorgi Chapidze’s certificates in Java, Hibernate, Python, TypeScript, JavaScript, and Redis, with certificate images and completion dates.",
+			"Giorgi Chapidze’s certificates in Java, Hibernate, Python, TypeScript, JavaScript, and Redis, with links to completed courses and credentials.",
 		schemaType: "CollectionPage",
 	},
 	...posts.map((post) => ({

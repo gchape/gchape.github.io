@@ -14,9 +14,8 @@ export function AboutPage() {
 		<>
 			<PageHeading title="About.">
 				<p>
-					I'm Giorgi Chapidze, a software developer and Computer Science graduate interested in
-					full-stack development, AI automation, and agents, alongside concurrency, databases, and
-					systems programming.
+					I am Giorgi Chapidze, a software developer and Computer Science graduate interested in the
+					design and behavior of software systems.
 				</p>
 				<p className="mt-4">
 					<a href="/resume.pdf" download className={linkClass}>
@@ -27,14 +26,14 @@ export function AboutPage() {
 			<div className="max-w-3xl space-y-10">
 				<Panel className="space-y-7 text-lg leading-8 text-muted-foreground">
 					<p>
-						I want to build practical tools that help businesses spend less time on repetitive work
-						and bring their processes into one place. That connects my interest in full-stack
-						software with AI automation and agents.
+						My interests include databases, backend systems, networking, and interface design. In my
+						work, I value simplicity, architectural robustness, and maintainability. I pay close
+						attention to implementation details and follow tasks through to completion.
 					</p>
 					<p>
-						I'm especially interested in digital commerce. I believe the future of online shopping
-						will connect product discovery, customer conversations, and business operations more
-						closely. My work with Beauty Code and my work on Zipwit explore that direction.
+						My initial skepticism toward AI has developed into an interest in its applications to
+						automation. I am currently studying retrieval-augmented generation (RAG), agent
+						workflows, and system integrations using LangChain and LangGraph.
 					</p>
 				</Panel>
 				<AboutSection

@@ -1,59 +1,33 @@
 import { PageHeading } from "@/components/page-heading";
 import { ExternalLink } from "@/components/text-link";
-import { certifications } from "./content";
+import { bootDevProfile, certifications } from "./content";
 
 export function CertificationsPage() {
 	return (
 		<>
-			<PageHeading title="Certifications." eyebrow="Professional development">
-				<p>
-					Certificates in Java, persistence, Python, TypeScript, JavaScript, and Redis. Open any
-					certificate to view the full-size image.
-				</p>
-			</PageHeading>
-			<ul className="grid gap-6 md:grid-cols-2">
-				{certifications.map((certificate) => (
+			<PageHeading title="Certifications." eyebrow="Professional development" />
+			<ul className="mx-auto divide-y divide-border overflow-hidden rounded-2xl border border-border/70 bg-card/95">
+				<li className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 px-5 py-4">
+					<div>
+						<h2 className="text-base font-semibold">Boot.dev</h2>
+						<p className="text-sm text-muted-foreground">Python, TypeScript, and JavaScript</p>
+					</div>
+					<ExternalLink href={bootDevProfile} className="text-sm">
+						View Boot.dev profile
+					</ExternalLink>
+				</li>
+				{certifications.map(({ title, issuer, date, dateLabel, href }) => (
 					<li
-						key={certificate.image}
-						className="overflow-hidden rounded-2xl border border-border/70 bg-card/95 shadow-sm"
+						key={`${issuer}-${title}`}
+						className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 px-5 py-4"
 					>
-						<a
-							href={certificate.image}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="block border-b border-border/70 bg-white p-4 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
-							aria-label={`View ${certificate.title} certificate (opens in a new tab)`}
-						>
-							<img
-								src={certificate.thumbnail}
-								srcSet={`${certificate.thumbnail} 640w, ${certificate.image} ${certificate.width}w`}
-								sizes="(min-width: 768px) 480px, 100vw"
-								alt={`${certificate.title} certificate awarded to Giorgi Chapidze by ${certificate.issuer}`}
-								width={certificate.width}
-								height={certificate.height}
-								loading="lazy"
-								decoding="async"
-								className="aspect-[4/3] w-full object-contain"
-							/>
-						</a>
-						<div className="space-y-3 p-6">
-							<p className="text-sm text-muted-foreground">{certificate.issuer}</p>
-							<h2 className="text-xl font-medium">{certificate.title}</h2>
-							<time dateTime={certificate.date} className="block text-sm text-muted-foreground">
-								{certificate.dateLabel}
-							</time>
-							<p className="text-sm leading-7 text-muted-foreground">{certificate.summary}</p>
-							{certificate.credentialId && (
-								<p className="break-all font-mono text-xs text-muted-foreground">
-									Credential ID: {certificate.credentialId}
-								</p>
-							)}
-							<div className="flex flex-wrap gap-4 text-sm">
-								<ExternalLink href={certificate.image}>View certificate</ExternalLink>
-								{certificate.verificationUrl && (
-									<ExternalLink href={certificate.verificationUrl}>Verify credential</ExternalLink>
-								)}
-							</div>
+						<div>
+							<h2 className="text-base font-semibold">
+								<ExternalLink href={href}>{title}</ExternalLink>
+							</h2>
+							<p className="text-sm text-muted-foreground">
+								{issuer} · <time dateTime={date}>{dateLabel}</time>
+							</p>
 						</div>
 					</li>
 				))}

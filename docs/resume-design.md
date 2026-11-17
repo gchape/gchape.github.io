@@ -10,9 +10,9 @@ Reviewed on November 17, 2026.
 
 ## Decisions
 
-The PDF uses one A4 page, 10.5-point Helvetica body text, white background, restrained rules, and a compact contact block. Experience leads because the live storefront provides concrete evidence of shipped work. Four projects show ecommerce, systems, and backend work; Zipwit describes its bilingual TanStack Shop storefront and Redis/PostgreSQL data split; education and grouped skills follow. The technical training section retains completed EPAM training and labels TBC training as Ongoing, as confirmed by the owner. A certifications section lists every certificate shown on the website, one line each with issuer and date. Soft-skills training remains on the website but is omitted from this focused resume.
+The PDF uses two A4 pages, 10.5-point Helvetica body text, and restrained green section rules. Experience and three selected projects lead the first page. Education, a focused skills list, technical training, and three selected credentials follow on the second. The PDF links to the full certifications page. TBC training is labeled Ongoing, as confirmed by the owner.
 
-Resume bullets are maintained alongside the shared experience and project data. Beauty Code claims come from its existing project write-up: transactional catalog saves, stable URLs, deployment, and recovery. The 22,000 Facebook followers describe the business, not an audience created by the developer. Velis throughput comes from the existing project benchmark write-up; the bullet labels it as localhost and retains payload, runtime, and hardware context. It is not a production-performance claim.
+Resume bullets are maintained alongside the shared experience and project data. Beauty Code claims come from its existing project write-up: transactional catalog saves, stable URLs, deployment, and recovery. The owner supplied the revenue and social media follower figures as context about the business. Velis throughput comes from the existing project benchmark write-up; the bullet labels it as localhost and retains payload, runtime, and hardware context. It is not a production-performance claim.
 
 Employment dates and graduation month/year still require the owner's confirmation. The thesis year is not treated as a confirmed graduation date. Do not invent dates, revenue, customer counts, improvements, or proficiency rankings.
 

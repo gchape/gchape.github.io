@@ -32,15 +32,13 @@ export function ProjectPage() {
 			</div>
 			{project.image && (
 				<img
-					src={project.image}
-					srcSet={project.imageSrcSet}
-					sizes="(min-width: 848px) 686px, (min-width: 640px) calc(100vw - 162px), calc(100vw - 90px)"
+					src={project.image.src}
 					fetchPriority="high"
 					decoding="async"
-					alt={project.imageAlt ?? project.title}
-					className="mb-10 aspect-video w-full rounded border border-border object-contain"
-					width={1280}
-					height={720}
+					alt={project.image.alt}
+					className="mb-10 h-auto w-full rounded border border-border"
+					width={project.image.width}
+					height={project.image.height}
 				/>
 			)}
 			{(project.url || project.github || project.video) && (

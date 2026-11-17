@@ -108,9 +108,9 @@ Posts use `react-markdown` with `remark-gfm`: CommonMark, tables, nested lists, 
 
 Valibot validates post metadata. Title, description, date, and category are required; `sample` defaults to `false`. Quoted dates and YAML date timestamps are accepted, while missing or impossible dates fail with the source filename and field. There is no fallback publication date.
 
-Fenced `mermaid` blocks render as SVG diagrams in posts and project descriptions. Mermaid loads when a diagram approaches the viewport, follows the light/dark theme, and uses Source Sans 3. Diagrams scroll horizontally on narrow screens and support keyboard focus. Include `accTitle:` and `accDescr:` in each chart for accessible labels and descriptions.
+Fenced `mermaid` blocks display pre-generated light and dark SVGs. After adding or editing a chart, run `pnpm diagrams` with Chromium installed and commit the generated files in `public/images/diagrams/`. Set `CHROMIUM_BIN` if your executable is named something other than `chromium`. Give every chart a unique `accTitle:` and a one-line `accDescr:` for its accessible description. Diagrams scroll horizontally on narrow screens and support keyboard focus.
 
-`vite-plugin-markdown` extracts YAML frontmatter and article text at build time. No custom build plugin or browser-side parser is needed.
+The Vite configuration parses Markdown frontmatter and reads article text at build time. Post lists load only metadata, and article routes load the Markdown on demand.
 
 ## Add a project
 
@@ -128,16 +128,19 @@ export const myProject: Project = {
 	content: "## Overview\n\nThe story behind this project.",
 	url: "https://example.com",
 	github: "https://github.com/me/project",
-	image: "/images/my-project.webp",
-	imageAlt: "Screenshot of my project",
-	imageSrcSet: "/images/my-project-small.webp 640w, /images/my-project.webp 1280w",
+	image: {
+		src: "/images/my-project.webp",
+		alt: "Screenshot of my project",
+		width: 1280,
+		height: 720,
+	},
 	video: "https://example.com/demo",
 };
 ```
 
 Import the project into `src/features/portfolio/content/projects.ts` and add it to the `projects` array. Each project gets a detail page. Live-site, repository, and demo-video links appear when supplied.
 
-Project promo images live in `public/images/projects/` as responsive WebP files. The Beauty Code and Velis images come from their repositories’ READMEs; video links point to the original GitHub attachments. Keep original image proportions and provide alt text.
+Project promo images live in `public/images/projects/` as one WebP per project. The Beauty Code and Velis images come from their repositories’ READMEs; video links point to the original GitHub attachments. Keep original image proportions and provide alt text.
 
 ## Personalize
 
@@ -167,7 +170,7 @@ The deployed sitemap is <https://gchape.github.io/sitemap.xml>. It is also adver
 
 See [the maintenance audit](docs/maintenance-audit.md) for the latest dependency review, browser checks, and measured loading changes. `pnpm-workspace.yaml` contains targeted security overrides for transitive build dependencies; remove each override when its parent dependency adopts the patched version.
 
-The initial pages use pre-rendered HTML, with JSON-LD kept in the React tree to preserve hydration. About, Portfolio, and detail pages load their own route code on demand. Body and heading fonts are preloaded; other font subsets load only when their characters are used. Diagram rendering waits until the figure approaches the viewport.
+The initial pages use pre-rendered HTML, with JSON-LD kept in the React tree to preserve hydration. About, Portfolio, and detail pages load their own route code on demand. Body and heading fonts are preloaded; other font subsets load only when their characters are used. Static diagram images load as the figure approaches the viewport.
 
 ## Generated resume
 

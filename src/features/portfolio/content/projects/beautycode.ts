@@ -9,10 +9,11 @@ export const beautyCode: Project = {
 	tags: ["React", "TanStack Start", "SQLite", "Tailwind CSS"],
 	url: "https://beautycode.com.ge",
 	github: "https://github.com/gchape/beautycode",
-	image: "/images/projects/beautycode-1280.webp",
-	imageSrcSet:
-		"/images/projects/beautycode-640.webp 640w, /images/projects/beautycode-1280.webp 1280w",
-	imageAlt:
-		"Beauty Code storefront promotional image with Georgian captions and captured Lighthouse scores",
+	image: {
+		src: "/images/projects/beautycode-1280.webp",
+		alt: "Beauty Code storefront promotional image with Georgian captions and captured Lighthouse scores",
+		width: 1280,
+		height: 720,
+	},
 	video: "https://github.com/user-attachments/assets/a44e55ab-4551-4b4e-b235-a11089eb43df",
 };

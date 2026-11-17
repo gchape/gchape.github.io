@@ -12,7 +12,8 @@ export const beautyCodeWork = {
 		"Keep product edits, galleries, and audit records consistent through SQLite transactions; preserve product URLs when names change",
 		"Operate the store on AWS EC2 with Docker and nginx; maintain S3 database snapshots and integrity-checked restoration",
 	],
-	context: "Beauty Code is an online store with around 22,000 followers on Facebook.",
+	context:
+		"Beauty Code is an online store with approximately GEL 10,000 in monthly revenue and 25,000+ social media followers.",
 	summary:
 		"I handle the store's technical work: building and maintaining the storefront, catalog tools, image delivery, and deployment, and solving technical problems as they come up.",
 };

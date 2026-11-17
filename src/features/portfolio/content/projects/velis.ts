@@ -12,8 +12,11 @@ export const velis: Project = {
 	category: "Systems",
 	tags: ["Python", "asyncio", "TCP"],
 	github: "https://github.com/gchape/velis",
-	image: "/images/projects/velis-1280.webp",
-	imageSrcSet: "/images/projects/velis-640.webp 640w, /images/projects/velis-1280.webp 1280w",
-	imageAlt: "Velis promotional image showing the terminal workspace",
+	image: {
+		src: "/images/projects/velis-1280.webp",
+		alt: "Velis promotional image showing the terminal workspace",
+		width: 1280,
+		height: 720,
+	},
 	video: "https://github.com/user-attachments/assets/3e8a388c-35b3-4814-bc9e-466efc932780",
 };

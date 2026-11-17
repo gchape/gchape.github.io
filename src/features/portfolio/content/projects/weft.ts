@@ -12,7 +12,10 @@ export const weft: Project = {
 	category: "Systems",
 	tags: ["Java", "JVM instrumentation", "MVCC"],
 	github: "https://github.com/gchape/weft",
-	image: "/images/projects/weft-1280.webp",
-	imageSrcSet: "/images/projects/weft-640.webp 640w, /images/projects/weft-1280.webp 1280w",
-	imageAlt: "Weft — concurrent threads woven together.",
+	image: {
+		src: "/images/projects/weft-1280.webp",
+		alt: "Weft — concurrent threads woven together.",
+		width: 1280,
+		height: 427,
+	},
 };

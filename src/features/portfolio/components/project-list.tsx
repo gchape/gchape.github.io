@@ -31,15 +31,13 @@ export function ProjectList({ projects }: { projects: Project[] }) {
 						{project.image && (
 							<ItemHeader className="overflow-hidden rounded-xl">
 								<img
-									src={project.image}
-									srcSet={project.imageSrcSet}
-									sizes="(min-width: 768px) 480px, 100vw"
-									alt={project.imageAlt ?? project.title}
+									src={project.image.src}
+									alt={project.image.alt}
 									loading="lazy"
 									decoding="async"
-									width={1280}
-									height={720}
-									className="aspect-video w-full object-contain motion-safe:transition-transform motion-safe:duration-650 motion-safe:ease-smooth motion-safe:group-hover/item:scale-[1.02]"
+									width={project.image.width}
+									height={project.image.height}
+									className="h-auto w-full motion-safe:transition-transform motion-safe:duration-650 motion-safe:ease-smooth motion-safe:group-hover/item:scale-[1.02]"
 								/>
 							</ItemHeader>
 						)}
