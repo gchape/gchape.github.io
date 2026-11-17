@@ -1,6 +1,6 @@
 # Resume design and content
 
-Reviewed on November 12, 2026.
+Reviewed on November 17, 2026.
 
 ## Sources
 
@@ -10,7 +10,7 @@ Reviewed on November 12, 2026.
 
 ## Decisions
 
-The PDF uses one A4 page, 10.5-point Helvetica body text, white background, restrained rules, and a compact contact block. Experience leads because the live storefront provides concrete evidence of shipped work. Three projects show systems and backend work; education and grouped skills follow. The technical training section retains completed EPAM training and labels TBC training as Ongoing, as confirmed by the owner. Soft-skills training and Zipwit's future plans remain on the website but are omitted from this focused resume.
+The PDF uses one A4 page, 10.5-point Helvetica body text, white background, restrained rules, and a compact contact block. Experience leads because the live storefront provides concrete evidence of shipped work. Four projects show ecommerce, systems, and backend work; Zipwit describes its bilingual TanStack Shop storefront and Redis/PostgreSQL data split; education and grouped skills follow. The technical training section retains completed EPAM training and labels TBC training as Ongoing, as confirmed by the owner. A certifications section lists every certificate shown on the website, one line each with issuer and date. Soft-skills training remains on the website but is omitted from this focused resume.
 
 Resume bullets are maintained alongside the shared experience and project data. Beauty Code claims come from its existing project write-up: transactional catalog saves, stable URLs, deployment, and recovery. The 22,000 Facebook followers describe the business, not an audience created by the developer. Velis throughput comes from the existing project benchmark write-up; the bullet labels it as localhost and retains payload, runtime, and hardware context. It is not a production-performance claim.
 

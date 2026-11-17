@@ -2,6 +2,7 @@ import { Document, Font, Link, Page, StyleSheet, Text, View } from "@react-pdf/r
 import { beautyCodeWork, education, training } from "@/content/experience";
 import { profile } from "@/content/profile";
 import { site } from "@/content/site";
+import { certifications } from "@/features/certifications/content";
 import { projects } from "@/features/portfolio/content/projects";
 
 Font.registerHyphenationCallback((word) => [word]);
@@ -99,7 +100,7 @@ export function ResumeDocument() {
 				</Text>
 				{projects
 					.filter((project) => project.resumeHighlights)
-					.slice(0, 3)
+					.slice(0, 4)
 					.map((project) => (
 						<View key={project.slug} style={styles.project} wrap={false}>
 							<View style={styles.heading}>
@@ -143,6 +144,15 @@ export function ResumeDocument() {
 							<Text>{item.status}</Text>
 						</View>
 					))}
+				<Text style={styles.section} minPresenceAhead={55}>
+					Certifications
+				</Text>
+				{certifications.map((certification) => (
+					<Text key={certification.title} style={styles.training} wrap={false}>
+						<Text style={styles.title}>{certification.issuer}</Text>
+						{` — ${certification.title} · ${certification.dateLabel}`}
+					</Text>
+				))}
 			</Page>
 		</Document>
 	);
