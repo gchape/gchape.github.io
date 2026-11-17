@@ -9,6 +9,11 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { BlogPage } from "@/features/blog/blog-page";
 
+const CertificationsPage = lazy(() =>
+	import("@/features/certifications/certifications-page").then(({ CertificationsPage }) => ({
+		default: CertificationsPage,
+	})),
+);
 const AboutPage = lazy(() =>
 	import("@/features/about/about-page").then(({ AboutPage }) => ({ default: AboutPage })),
 );
@@ -70,6 +75,7 @@ export default function App() {
 								<Route path="/" component={BlogPage} />
 								<Route path="/portfolio" component={PortfolioPage} />
 								<Route path="/about" component={AboutPage} />
+								<Route path="/certifications" component={CertificationsPage} />
 								<Route path="/blog/:slug" component={ArticlePage} />
 								<Route path="/portfolio/:slug" component={ProjectPage} />
 								<Route component={NotFoundPage} />

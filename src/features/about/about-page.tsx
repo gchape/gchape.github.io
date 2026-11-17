@@ -103,6 +103,9 @@ export function AboutPage() {
 					<p>{education.note}</p>
 				</AboutSection>
 				<AboutSection id="training" title="Training">
+					<p>
+						<TextLink href="/certifications">View certifications and training</TextLink>
+					</p>
 					<ul className="space-y-8">
 						{training.map((item) => (
 							<TrainingItem key={item.title} item={item} />

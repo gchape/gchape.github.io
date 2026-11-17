@@ -34,6 +34,13 @@ export const pages: PageMetadata[] = [
 			"Meet Giorgi Chapidze: software developer, creator of the Zipwit ecommerce organization, and CTO / technical lead at Beauty Code, interested in full-stack development, AI automation, and agents.",
 		schemaType: "ProfilePage",
 	},
+	{
+		path: "/certifications",
+		title: `Certifications — ${profile.name}`,
+		description:
+			"Giorgi Chapidze’s certificates in Java, Hibernate, Python, TypeScript, JavaScript, and Redis, with certificate images and completion dates.",
+		schemaType: "CollectionPage",
+	},
 	...posts.map((post) => ({
 		path: `/blog/${post.slug}`,
 		title: `${post.title} — ${profile.name}`,

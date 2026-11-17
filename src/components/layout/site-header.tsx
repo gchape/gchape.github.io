@@ -7,6 +7,7 @@ import { profile } from "@/content/profile";
 const navigation = [
 	{ label: "Blog", href: "/", path: "/" },
 	{ label: "Portfolio", href: "/portfolio", path: "/portfolio" },
+	{ label: "Certifications", href: "/certifications", path: "/certifications" },
 	{ label: "About", href: "/about", path: "/about" },
 ];
 
@@ -21,10 +22,10 @@ export function SiteHeader() {
 			>
 				{profile.name}
 			</Link>
-			<div className="flex items-center gap-2 sm:gap-3">
+			<div className="flex max-w-full flex-wrap items-center gap-2 sm:gap-3">
 				<nav
 					aria-label="Main navigation"
-					className="flex items-center gap-1 rounded-full border border-border/70 bg-card/80 p-1 shadow-sm"
+					className="flex flex-wrap items-center gap-1 rounded-2xl sm:rounded-full border border-border/70 bg-card/80 p-1 shadow-sm"
 				>
 					{navigation.map((item) => {
 						const active =
@@ -40,7 +41,7 @@ export function SiteHeader() {
 								variant={active ? "secondary" : "ghost"}
 								size="xs"
 								className={cn(
-									"h-8 px-3.5 text-sm font-medium",
+									"h-8 px-2 text-xs font-medium sm:px-3.5 sm:text-sm",
 									active && "bg-primary/10 text-primary",
 								)}
 							>

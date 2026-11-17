@@ -25,3 +25,19 @@ Compared portfolio metadata, descriptions, diagrams, examples, and published ben
 ## Scope
 
 This is a source/documentation consistency review, not a security audit or rerun of the upstream test and benchmark suites. Existing limitations and benchmark caveats remain visible. Content links point to upstream documentation for full operational instructions.
+
+## November 17, 2026 refresh
+
+Rechecked the public repository READMEs and assets for the following updates:
+
+- [gchape/weft at 5f8b5d939089](https://github.com/gchape/weft/tree/5f8b5d93908968748a7c2d332818dc95abfebc36)
+- [gchape/bachelor-thesis at 5499e8554c26](https://github.com/gchape/bachelor-thesis/tree/5499e8554c2628795d7e42a4bd3b3f214dab4181)
+- [zipwit/zipwit-shop at bc7104029bdb](https://github.com/zipwit/zipwit-shop/tree/bc7104029bdb127bf527c21603d218008aa097d4)
+
+Weft uses its new repository banner and documents current agent analysis and thread ownership boundaries. The thesis links to the compiled PDF, implementation archive, and preserved snapshot tag. Zipwit replaces the previous organization and groups its ecommerce projects under `/portfolio/zipwit`; Zipwit Shop is the current public repository. Zipwit’s organization logo and shop offers artwork use the supplied Desktop SVGs.
+
+The `/certifications` route displays ten certificate images supplied from Downloads, with titles, issuers, and completion dates transcribed from the images. The Redis specialization includes the verification URL printed on its certificate. General EPAM and TBC training remains on About.
+
+Certificate assets use lossless WebP conversion from the supplied images. Crops remove Scrimba print chrome and excess outer margins from the JavaSpecialists and Redis certificates. All certificate wording, signatures, and identifiers retain original pixels. An AI cleanup preview was discarded because it changed fine details.
+
+Scrimba now uses the complete original image, preserving the printed timestamp, title, URL/hash, and page number. Four Boot.dev certificates were added in WebP with completion dates and credential IDs from the supplied images.
