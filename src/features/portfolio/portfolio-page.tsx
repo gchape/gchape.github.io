@@ -19,7 +19,7 @@ export function PortfolioPage() {
 		<>
 			<PageHeading title="Projects.">
 				<p>
-					Software projects, experiments, and academic work, mostly around concurrency, databases,
+					Ecommerce projects, software experiments, and academic work around concurrency, databases,
 					and systems. More code lives on{" "}
 					<ExternalLink href={profile.github}>
 						GitHub

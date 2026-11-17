@@ -4,9 +4,13 @@ import { gymCrm } from "./projects/gym-crm";
 import { velis } from "./projects/velis";
 import { weft } from "./projects/weft";
 
+import { zipwit } from "./projects/zipwit";
+
 export type { Project } from "./project";
 
-export const projects = [velis, beautyCode, gymCrm, weft, bachelorThesis];
+export const projects = [zipwit, velis, beautyCode, gymCrm, weft, bachelorThesis];
+
+export const projectPages = projects.flatMap((project) => [project, ...(project.children ?? [])]);
 
 export const themes = [
 	{
@@ -19,7 +23,7 @@ export const themes = [
 	},
 	{
 		title: "Applications and APIs",
-		text: "Beauty Code, a production storefront, and Gym CRM, a Java backend with relational persistence and Kafka-driven workload tracking.",
+		text: "Zipwit ecommerce projects, Beauty Code’s production storefront, and Gym CRM’s Java backend with relational persistence and Kafka-driven workload tracking.",
 	},
 ];
 

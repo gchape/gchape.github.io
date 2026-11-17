@@ -3,7 +3,7 @@ import { Panel } from "@/components/panel";
 import { SocialLinks } from "@/components/social-links";
 import { ExternalLink, linkClass, TextLink } from "@/components/text-link";
 import { Badge } from "@/components/ui/badge";
-import { beautyCodeWork, education, ohooq, training } from "@/content/experience";
+import { beautyCodeWork, education, training, zipwitOrganization } from "@/content/experience";
 import { profile } from "@/content/profile";
 
 import { AboutSection } from "./components/about-section";
@@ -34,7 +34,7 @@ export function AboutPage() {
 					<p>
 						I'm especially interested in digital commerce. I believe the future of online shopping
 						will connect product discovery, customer conversations, and business operations more
-						closely. My work with Beauty Code and my plans for Ohooq explore that direction.
+						closely. My work with Beauty Code and my work on Zipwit explore that direction.
 					</p>
 				</Panel>
 				<AboutSection
@@ -64,16 +64,13 @@ export function AboutPage() {
 						<TextLink href="/portfolio">See these tools in my projects</TextLink>
 					</p>
 				</AboutSection>
-				<AboutSection id="ohooq" title={ohooq.name} subtitle="GitHub organization">
-					<p>{ohooq.summary}</p>
-					<p>I'm planning a shared space for tools such as:</p>
-					<ul className="list-disc space-y-1 pl-5">
-						{ohooq.plans.map((plan) => (
-							<li key={plan}>{plan}</li>
-						))}
-					</ul>
+				<AboutSection id="zipwit" title={zipwitOrganization.name} subtitle="Ecommerce organization">
+					<p>{zipwitOrganization.summary}</p>
 					<p>
-						<ExternalLink href={ohooq.github}>Ohooq on GitHub</ExternalLink>
+						<TextLink href="/portfolio/zipwit">Explore Zipwit projects</TextLink>
+					</p>
+					<p>
+						<ExternalLink href={zipwitOrganization.github}>Zipwit on GitHub</ExternalLink>
 					</p>
 				</AboutSection>
 				<AboutSection id="beautycode" title="Beauty Code" subtitle={beautyCodeWork.role}>

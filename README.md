@@ -143,7 +143,7 @@ Project promo images live in `public/images/projects/` as responsive WebP files.
 
 - Contact links: `src/content/profile.ts`.
 - Skills & tools: edit `profile.skills` in `src/content/profile.ts`. Each group has a `label` and an `items` list. The About page (`/about/#skills`) and generated resume use the same list; rebuild to update the PDF.
-- Education, training, Ohooq plans, and Beauty Code role: `src/content/experience.ts`.
+- Education, training, Zipwit plans, and Beauty Code role: `src/content/experience.ts`.
 - Introduction and About copy: `src/features/blog/blog-page.tsx` and `src/features/about/about-page.tsx`.
 - Light and dark colors: `src/index.css`.
 

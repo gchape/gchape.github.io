@@ -6,14 +6,15 @@ import { lazyMarkdown } from "@/components/content/lazy-markdown";
 import { PageHeading } from "@/components/page-heading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { projects } from "@/features/portfolio/content/projects";
+import { ProjectList } from "@/features/portfolio/components/project-list";
+import { projectPages } from "@/features/portfolio/content/projects";
 
 const bodies = import.meta.glob<string>("./content/bodies/*.ts", { import: "default" });
 const contentComponents = lazyMarkdown(bodies);
 
 export function ProjectPage() {
 	const { slug } = useParams<{ slug: string }>();
-	const project = projects.find((project) => project.slug === slug);
+	const project = projectPages.find((project) => project.slug === slug);
 	const Content = contentComponents[slug];
 	if (!project || !Content) return <NotFoundPage />;
 	return (
@@ -73,13 +74,21 @@ export function ProjectPage() {
 							nativeButton={false}
 							render={<a href={project.github} target="_blank" rel="noopener noreferrer" />}
 						>
-							View repository
+							{project.children ? "View organization" : "View repository"}
 							<Code aria-hidden="true" />
 						</Button>
 					)}
 				</div>
 			)}
 			<Content />
+			{project.children && (
+				<section className="mt-12" aria-labelledby="organization-projects">
+					<h2 id="organization-projects" className="mb-6 text-2xl font-medium">
+						{project.title} projects
+					</h2>
+					<ProjectList projects={project.children} />
+				</section>
+			)}
 		</article>
 	);
 }

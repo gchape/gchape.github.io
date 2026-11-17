@@ -48,11 +48,11 @@ Weft.atomic(() -> {
 });
 \`\`\`
 
-The agent can supply metrics at load time; callers can also provide explicit metrics through the overloaded entry point.
+The agent can supply metrics at load time; callers can also provide explicit metrics through the overloaded entry point. It resolves directly nested bodies and same-class method references, while leaving explicit hints unchanged. Arbitrary helper calls, references into other classes, Runnable variables, and conditional lambda expressions require explicit hints when automatic analysis cannot resolve them.
 
 ## Usage boundaries and verification
 
-Transaction bodies can run more than once, so **I/O and irreversible effects belong outside them**. Values should be immutable or replaced through \`Weft.write\`; mutating an object returned by a read bypasses transactional buffering. Nested transactions share the outer attempt and have no savepoints. An attempt belongs to one thread, including when scoped bindings are inherited by structured subtasks.
+Transaction bodies can run more than once, so **I/O and irreversible effects belong outside them**. Values should be immutable or replaced through \`Weft.write\`; mutating an object returned by a read bypasses transactional buffering. Nested transactions share the outer attempt and have no savepoints. An attempt belongs to one thread. Cross-thread reads, writes, and nested atomic calls throw \`IllegalStateException\`, including from structured subtasks that inherit scoped bindings. Application failures discard buffered writes, and try-with-resources releases owned locks on every exit path.
 
 Retries are bounded: after the initial attempt and 512 retries, a persistent conflict raises \`MaxRetriesExceededException\`. Optimistic readers can consult retained history, while pessimistic readers retry when the latest value is newer than their snapshot. History starts at 32 entries and can be resized explicitly; it does not grow automatically.
 

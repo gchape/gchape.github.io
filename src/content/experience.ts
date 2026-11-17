@@ -1,9 +1,8 @@
-export const ohooq = {
-	name: "Ohooq",
-	github: "https://github.com/ohooq",
+export const zipwitOrganization = {
+	name: "Zipwit",
+	github: "https://github.com/zipwit",
 	summary:
-		"I created Ohooq as a GitHub organization to develop AI and software solutions that help businesses digitize their processes and automate routine work.",
-	plans: ["AI chat agents", "Live chat widgets", "Financial dashboards"],
+		"Zipwit is my ecommerce organization: a shared home for projects that connect product discovery, shopping, and commerce operations.",
 };
 
 export const beautyCodeWork = {

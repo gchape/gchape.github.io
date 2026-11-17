@@ -1,7 +1,7 @@
 import { profile } from "@/content/profile";
 import { site } from "@/content/site";
 import { posts } from "@/features/blog/content/posts";
-import { projects } from "@/features/portfolio/content/projects";
+import { projectPages } from "@/features/portfolio/content/projects";
 
 type PageMetadata = {
 	path: string;
@@ -24,14 +24,14 @@ export const pages: PageMetadata[] = [
 		path: "/portfolio",
 		title: `Projects — ${profile.name}`,
 		description:
-			"Explore Giorgi Chapidze's software projects: Velis, Beauty Code, Gym CRM, Weft, and research into software transactional memory in Clojure.",
+			"Explore Giorgi Chapidze's software projects: Zipwit, Velis, Beauty Code, Gym CRM, Weft, and research into software transactional memory in Clojure.",
 		schemaType: "CollectionPage",
 	},
 	{
 		path: "/about",
 		title: `About ${profile.name}, Software Developer`,
 		description:
-			"Meet Giorgi Chapidze: software developer, creator of Ohooq, and CTO / technical lead at Beauty Code, interested in full-stack development, AI automation, and agents.",
+			"Meet Giorgi Chapidze: software developer, creator of the Zipwit ecommerce organization, and CTO / technical lead at Beauty Code, interested in full-stack development, AI automation, and agents.",
 		schemaType: "ProfilePage",
 	},
 	...posts.map((post) => ({
@@ -42,11 +42,15 @@ export const pages: PageMetadata[] = [
 		date: post.date,
 		noindex: post.sample,
 	})),
-	...projects.map((project) => ({
+	...projectPages.map((project) => ({
 		path: `/portfolio/${project.slug}`,
 		title: `${project.title} — ${profile.name}`,
 		description: project.description,
-		schemaType: project.category === "Research" ? "CreativeWork" : "SoftwareSourceCode",
+		schemaType: project.children
+			? "CollectionPage"
+			: project.category === "Research"
+				? "CreativeWork"
+				: "SoftwareSourceCode",
 		repository: project.github,
 	})),
 ];

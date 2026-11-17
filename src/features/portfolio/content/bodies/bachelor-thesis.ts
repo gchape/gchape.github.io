@@ -41,7 +41,9 @@ The [implementation chapter](https://github.com/gchape/bachelor-thesis/blob/main
 
 ## Reading the research
 
-The repository contains the LaTeX thesis, formal argument, implementation listings, and recorded evaluation. It is a research artifact, rather than a packaged application with a quick-start API. The opacity argument concerns the model presented in the thesis; it should not be read as independent verification of every implementation detail.
+The repository includes the [compiled 54-page thesis](https://github.com/gchape/bachelor-thesis/blob/main/docs/thesis.pdf), LaTeX sources, and a [downloadable implementation snapshot](https://github.com/gchape/bachelor-thesis/raw/refs/heads/main/stm-v1.zip). The archive includes the STM, transaction hooks, tests, benchmark programs, results, and Java Flight Recorder recordings. Its original \`opusdb.*\` namespaces match the thesis listings.
+
+Extract \`stm-v1.zip\`, enter \`stm-v1/\`, and run \`lein test\` with a JDK and Leiningen installed. The [\`stm-v1\` tag](https://github.com/gchape/bachelor-thesis/tree/stm-v1) preserves the source snapshot. Build the PDF from the repository root with \`./scripts/build-thesis.sh\` and the documented TeX Live dependencies. The opacity argument concerns the model presented in the thesis; it should not be read as independent verification of every implementation detail.
 
 Lifecycle hooks coordinate effects with transaction outcomes inside the process. They do not, by themselves, provide durable delivery of notifications or other external effects across a process crash.
 
