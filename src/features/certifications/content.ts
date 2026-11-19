@@ -10,6 +10,13 @@ export const bootDevProfile = "https://www.boot.dev/u/gchape";
 
 export const certifications: Certification[] = [
 	{
+		title: "Certified in Ahrefs’ Marketing Platform",
+		issuer: "Ahrefs Academy",
+		date: "2026-11-19",
+		dateLabel: "November 19, 2026",
+		href: "https://ahrefs.com/academy/certificate/500c567982954c14904a25d6ea5275c9",
+	},
+	{
 		title: "Master and Apply Redis for Scalable Systems",
 		issuer: "EDUCBA · Coursera",
 		date: "2026-10-04",
