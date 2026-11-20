@@ -44,6 +44,8 @@ export const profile = {
 				"Web security",
 				"SEO",
 				"GEO",
+				"Ahrefs",
+				"Google Analytics",
 			],
 		},
 		{

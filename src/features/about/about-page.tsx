@@ -14,27 +14,29 @@ export function AboutPage() {
 		<>
 			<PageHeading title="About.">
 				<p>
-					I am Giorgi Chapidze, a software developer and Computer Science graduate interested in the
-					design and behavior of software systems.
+					I’m Giorgi Chapidze, a software developer and computer science graduate with experience
+					building e-commerce websites. I’m developing my skills in technical SEO and web analytics.
 				</p>
-				<p className="mt-4">
+				<p className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
 					<a href="/resume.pdf" download className={linkClass}>
 						Download resume (PDF)
 					</a>
+					<TextLink href="/certifications">View certifications</TextLink>
 				</p>
 			</PageHeading>
 			<div className="max-w-3xl space-y-10">
-				<Panel className="space-y-7 text-lg leading-8 text-muted-foreground">
+				<Panel className="space-y-4 text-lg leading-8 text-muted-foreground">
+					<h2 className="text-xl font-semibold text-foreground">SEO and analytics</h2>
 					<p>
-						My interests include databases, backend systems, networking, and interface design. In my
-						work, I value simplicity, architectural robustness, and maintainability. I pay close
-						attention to implementation details and follow tasks through to completion.
+						I hold certifications from Ahrefs Academy and Google Analytics. I’m interested in how
+						site structure and internal links affect indexing, and how analytics can help measure
+						the impact of changes to a site.
 					</p>
 					<p>
-						My initial skepticism toward AI has developed into an interest in its applications to
-						automation. I am currently studying retrieval-augmented generation (RAG), agent
-						workflows, and system integrations using LangChain and LangGraph.
+						I’m taking IBM’s SEO Mastery course and building my knowledge of generative engine
+						optimization (GEO) and answer engine optimization (AEO).
 					</p>
+					<p>English proficiency: C1, confirmed by a professional assessor at EPAM.</p>
 				</Panel>
 				<AboutSection
 					id="skills"
@@ -103,7 +105,7 @@ export function AboutPage() {
 				</AboutSection>
 				<AboutSection id="training" title="Training">
 					<p>
-						<TextLink href="/certifications">View certifications and training</TextLink>
+						I’m preparing for the Claude Architect certification with a stipend from EPAM Systems.
 					</p>
 					<ul className="space-y-8">
 						{training.map((item) => (

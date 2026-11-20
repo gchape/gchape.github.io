@@ -16,10 +16,10 @@ export function CertificationsPage() {
 						View Boot.dev profile
 					</ExternalLink>
 				</li>
-				{certifications.map(({ title, issuer, date, dateLabel, href }) => (
+				{certifications.map(({ title, issuer, date, dateLabel, href, badge }) => (
 					<li
 						key={`${issuer}-${title}`}
-						className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 px-5 py-4"
+						className="flex items-center justify-between gap-3 px-5 py-4"
 					>
 						<div>
 							<h2 className="text-base font-semibold">
@@ -29,6 +29,9 @@ export function CertificationsPage() {
 								{issuer} · <time dateTime={date}>{dateLabel}</time>
 							</p>
 						</div>
+						{badge && (
+							<img src={badge} alt="" width={48} height={48} className="size-12 shrink-0" />
+						)}
 					</li>
 				))}
 			</ul>

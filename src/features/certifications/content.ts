@@ -4,11 +4,20 @@ export type Certification = {
 	date: string;
 	dateLabel: string;
 	href: string;
+	badge?: string;
 };
 
 export const bootDevProfile = "https://www.boot.dev/u/gchape";
 
 export const certifications: Certification[] = [
+	{
+		title: "Google Analytics Certification (2026)",
+		issuer: "Google Skillshop",
+		date: "2026-11-20",
+		dateLabel: "November 20, 2026",
+		href: "/images/certifications/google-analytics-2026.webp",
+		badge: "/images/certifications/google-analytics-2026-badge.webp",
+	},
 	{
 		title: "Certified in Ahrefs’ Marketing Platform",
 		issuer: "Ahrefs Academy",
