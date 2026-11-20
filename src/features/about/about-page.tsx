@@ -14,29 +14,31 @@ export function AboutPage() {
 		<>
 			<PageHeading title="About.">
 				<p>
-					I’m Giorgi Chapidze, a software developer and computer science graduate with experience
-					building e-commerce websites. I’m developing my skills in technical SEO and web analytics.
+					I design UIs, shape software architecture, and deploy what I build. I favor simple,
+					composable components and choose languages and tools to fit the problem.
 				</p>
-				<p className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
+				<p className="mt-4">
+					I enjoy reading about advanced programming concepts and lesser-known language features.
+					Books from the Martin Fowler Signature Series are among my favorites.
+				</p>
+				<p className="mt-4">
 					<a href="/resume.pdf" download className={linkClass}>
 						Download resume (PDF)
 					</a>
-					<TextLink href="/certifications">View certifications</TextLink>
 				</p>
 			</PageHeading>
 			<div className="max-w-3xl space-y-10">
-				<Panel className="space-y-4 text-lg leading-8 text-muted-foreground">
-					<h2 className="text-xl font-semibold text-foreground">SEO and analytics</h2>
+				<Panel className="space-y-7 text-lg leading-8 text-muted-foreground">
 					<p>
-						I hold certifications from Ahrefs Academy and Google Analytics. I’m interested in how
-						site structure and internal links affect indexing, and how analytics can help measure
-						the impact of changes to a site.
+						I’m interested in digital marketing and web analytics, especially where a storefront’s
+						traffic comes from and how customers move through the site. I’m learning how SEO and GEO
+						can help people find a storefront in search results and AI-generated answers.
 					</p>
 					<p>
-						I’m taking IBM’s SEO Mastery course and building my knowledge of generative engine
-						optimization (GEO) and answer engine optimization (AEO).
+						I was skeptical of AI at first. Now I use it in development and explore what it can
+						automate. I’m studying retrieval-augmented generation (RAG) and learning to build agent
+						workflows with LangChain and LangGraph.
 					</p>
-					<p>English proficiency: C1, confirmed by a professional assessor at EPAM.</p>
 				</Panel>
 				<AboutSection
 					id="skills"
@@ -83,14 +85,14 @@ export function AboutPage() {
 				</AboutSection>
 				<AboutSection id="systems" title="Systems and research">
 					<p>
-						I also enjoy understanding the systems underneath an application. In{" "}
+						My systems projects give me a way to explore how software behaves in practice. In{" "}
 						<TextLink href="/portfolio/velis">Velis</TextLink>, I work on the details of a Python
 						cache: expiration, eviction, a TCP protocol, and a terminal client that makes the server
 						easier to explore.
 					</p>
 					<p>
-						<TextLink href="/portfolio/weft">Weft</TextLink> explores choosing between optimistic
-						transactions and early write locking in Java. My{" "}
+						<TextLink href="/portfolio/weft">Weft</TextLink> compares optimistic transactions with
+						early write locking in Java. My{" "}
 						<TextLink href="/portfolio/bachelor-thesis">Clojure STM thesis</TextLink> studies
 						consistent snapshots and coordinating side effects with transaction outcomes. Both
 						projects connect implementation choices to concurrency benchmarks.
@@ -105,7 +107,7 @@ export function AboutPage() {
 				</AboutSection>
 				<AboutSection id="training" title="Training">
 					<p>
-						I’m preparing for the Claude Architect certification with a stipend from EPAM Systems.
+						<TextLink href="/certifications">View certifications and training</TextLink>
 					</p>
 					<ul className="space-y-8">
 						{training.map((item) => (
@@ -114,7 +116,7 @@ export function AboutPage() {
 					</ul>
 				</AboutSection>
 				<AboutSection id="contact" title="Get in touch">
-					<p>For software projects, automation ideas, or a conversation:</p>
+					<p>Feel free to reach out about software projects or automation ideas.</p>
 					<a
 						href={`mailto:${profile.email}`}
 						className={`${linkClass} inline-block break-all text-base`}
